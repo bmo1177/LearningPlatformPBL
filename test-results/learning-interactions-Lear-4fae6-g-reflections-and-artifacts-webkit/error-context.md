@@ -1,0 +1,1127 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: learning-interactions.spec.ts >> Learning Interactions >> should allow saving reflections and artifacts
+- Location: e2e/learning-interactions.spec.ts:10:7
+
+# Error details
+
+```
+Test timeout of 60000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 60000ms exceeded.
+Call log:
+  - waiting for locator('#step-1 button:has-text("Save Reflection")')
+    - locator resolved to <button disabled class="flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium transition-all duration-200 cursor-pointer bg-slate-100 text-slate-500 cursor-not-allowed">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not enabled
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not enabled
+    - retrying click action
+      - waiting 100ms
+    103 × waiting for element to be visible, enabled and stable
+        - element is not enabled
+      - retrying click action
+        - waiting 500ms
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - main [ref=e2]:
+    - complementary [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - generic [ref=e6]:
+            - heading "Information Retrieval Engine" [level=1] [ref=e7]
+            - paragraph [ref=e8]: Intermediate · 3–4 Hours
+          - button "Hide Sidebar" [ref=e9] [cursor=pointer]:
+            - img [ref=e10]
+        - generic [ref=e15]: 0/6
+      - navigation [ref=e16]:
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - paragraph [ref=e19]: Overview
+            - list [ref=e20]:
+              - listitem [ref=e21]:
+                - button "30 Second Summary" [ref=e22] [cursor=pointer]:
+                  - img [ref=e23]
+                  - generic [ref=e25]: 30 Second Summary
+              - listitem [ref=e26]:
+                - button "Objectives" [ref=e27] [cursor=pointer]:
+                  - img [ref=e28]
+                  - generic [ref=e32]: Objectives
+          - generic [ref=e33]:
+            - paragraph [ref=e34]: Curriculum
+            - list [ref=e35]:
+              - listitem [ref=e36]:
+                - button "1. Environment Setup & Bootstrapping" [ref=e37] [cursor=pointer]:
+                  - img [ref=e39]
+                  - generic [ref=e42]: 1. Environment Setup & Bootstrapping
+              - listitem [ref=e43]:
+                - button "2. Data Parsing Module" [ref=e44] [cursor=pointer]:
+                  - img [ref=e46]
+                  - generic [ref=e49]: 2. Data Parsing Module
+              - listitem [ref=e50]:
+                - button "3. Core Search Engine & Mathematics" [ref=e51] [cursor=pointer]:
+                  - img [ref=e53]
+                  - generic [ref=e56]: 3. Core Search Engine & Mathematics
+              - listitem [ref=e57]:
+                - button "4. Flask API Endpoints" [ref=e58] [cursor=pointer]:
+                  - img [ref=e60]
+                  - generic [ref=e63]: 4. Flask API Endpoints
+              - listitem [ref=e64]:
+                - button "5. Frontend Integration" [ref=e65] [cursor=pointer]:
+                  - img [ref=e67]
+                  - generic [ref=e70]: 5. Frontend Integration
+              - listitem [ref=e71]:
+                - button "6. E2E Testing & Quality Assurance" [ref=e72] [cursor=pointer]:
+                  - img [ref=e74]
+                  - generic [ref=e77]: 6. E2E Testing & Quality Assurance
+          - generic [ref=e78]:
+            - paragraph [ref=e79]: Wrap Up
+            - list [ref=e80]:
+              - listitem [ref=e81]:
+                - button "What You Learned" [ref=e82] [cursor=pointer]:
+                  - img [ref=e83]
+                  - generic [ref=e86]: What You Learned
+              - listitem [ref=e87]:
+                - button "Export Report" [ref=e88] [cursor=pointer]:
+                  - img [ref=e89]
+                  - generic [ref=e92]: Export Report
+        - link "Need help? Ask the community →" [ref=e94]:
+          - /url: "#"
+          - img [ref=e96]
+          - generic [ref=e101]:
+            - paragraph [ref=e102]: Need help?
+            - paragraph [ref=e103]: Ask the community →
+    - generic [ref=e104]:
+      - generic [ref=e105]:
+        - generic [ref=e106]:
+          - generic [ref=e107]:
+            - generic [ref=e108]: IR
+            - generic [ref=e109]: AI
+          - generic [ref=e111]: Professional Curriculum
+        - heading "Information Retrieval Engine Python Edition" [level=1] [ref=e112]:
+          - text: Information Retrieval Engine
+          - generic [ref=e113]: Python Edition
+        - paragraph [ref=e114]: Build a modern, production-ready Information Retrieval system using Python and Flask.
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - img [ref=e118]
+            - generic [ref=e121]:
+              - generic [ref=e122]: Difficulty
+              - generic [ref=e123]: Intermediate
+          - generic [ref=e125]:
+            - img [ref=e127]
+            - generic [ref=e130]:
+              - generic [ref=e131]: Est. Duration
+              - generic [ref=e132]: 3–4 Hours
+          - generic [ref=e134]:
+            - img [ref=e136]
+            - generic [ref=e139]:
+              - generic [ref=e140]: Curriculum Lead
+              - generic [ref=e141]: Belalia Mohamed Oussama
+        - generic [ref=e142]:
+          - generic [ref=e143]: Core Stack
+          - generic [ref=e144]:
+            - generic [ref=e145]: Inverted Index
+            - generic [ref=e146]: TF-IDF (Term Frequency–Inverse Document Frequency)
+            - generic [ref=e147]: Okapi BM25
+            - generic [ref=e148]: Boolean Search (AND, OR, NOT)
+            - generic [ref=e149]: Cosine Similarity
+            - generic [ref=e150]: Stopword Filtering & Lemmatization
+            - generic [ref=e151]: Flask RESTful API
+      - generic [ref=e153]:
+        - generic [ref=e154]:
+          - img [ref=e156]
+          - generic [ref=e158]:
+            - heading "Before you begin" [level=4] [ref=e159]
+            - paragraph [ref=e160]: This project focuses on the core principles of Information Retrieval. You'll be building algorithms from scratch to understand how they work under the hood. While production systems use optimized libraries, building them yourself is the best way to deeply understand search ranking.
+        - generic [ref=e161]:
+          - generic [ref=e163]:
+            - img [ref=e165]
+            - heading "Executive Summary" [level=2] [ref=e167]
+          - generic [ref=e168]:
+            - paragraph [ref=e169]:
+              - text: Welcome to building your own
+              - strong [ref=e170]: Information Retrieval Engine
+              - text: with Python and Flask! 🚀
+            - paragraph [ref=e171]:
+              - text: Ever wondered how search engines find exactly what you need in millions of documents? Whether it's Google ranking web pages or Elasticsearch powering e-commerce search, they all rely on core IR algorithms like
+              - strong [ref=e172]: TF-IDF
+              - text: and
+              - strong [ref=e173]: BM25
+              - text: .
+            - paragraph [ref=e174]:
+              - text: In this project, you'll build your own powerful search system from scratch. You'll parse real datasets, construct an
+              - strong [ref=e175]: Inverted Index
+              - text: ", implement mathematical ranking models, expose everything through a"
+              - strong [ref=e176]: Flask REST API
+              - text: ", and wire up a clean web frontend to interact with it all."
+        - generic [ref=e177]:
+          - heading "Program Objectives" [level=2] [ref=e178]
+          - generic [ref=e179]:
+            - generic [ref=e180]:
+              - img [ref=e182]
+              - generic [ref=e185]: Set up a Python environment and install data science dependencies.
+            - generic [ref=e186]:
+              - img [ref=e188]
+              - generic [ref=e191]: Build a multi-format file parser to ingest CSV, PDF, DOCX, and more.
+            - generic [ref=e192]:
+              - img [ref=e194]
+              - generic [ref=e197]: Implement TF-IDF, BM25, and Boolean search from scratch.
+            - generic [ref=e198]:
+              - img [ref=e200]
+              - generic [ref=e203]: Create RESTful API endpoints with Flask for search and statistics.
+            - generic [ref=e204]:
+              - img [ref=e206]
+              - generic [ref=e209]: Build a responsive web frontend to interact with your engine.
+        - generic [ref=e213]:
+          - heading "System Logical Workflow" [level=3] [ref=e214]
+          - generic [ref=e215]:
+            - generic [ref=e216]:
+              - generic [ref=e217]:
+                - generic [ref=e218]: "01"
+                - text: CSV/PDF/DOCX
+              - generic [ref=e220]: →
+            - generic [ref=e221]:
+              - generic [ref=e222]:
+                - generic [ref=e223]: "02"
+                - text: FileParser
+              - generic [ref=e225]: →
+            - generic [ref=e226]:
+              - generic [ref=e227]:
+                - generic [ref=e228]: "03"
+                - text: SearchEngine (Inverted Index)
+              - generic [ref=e230]: →
+            - generic [ref=e231]:
+              - generic [ref=e232]:
+                - generic [ref=e233]: "04"
+                - text: BM25 / TF-IDF / Boolean Models
+              - generic [ref=e235]: →
+            - generic [ref=e236]:
+              - generic [ref=e237]:
+                - generic [ref=e238]: "05"
+                - text: Flask API (app.py)
+              - generic [ref=e240]: →
+            - generic [ref=e242]:
+              - generic [ref=e243]: "06"
+              - text: Web Frontend (HTML/CSS/JS)
+      - generic [ref=e245]:
+        - generic [ref=e246]:
+          - img [ref=e248]
+          - generic [ref=e260]:
+            - heading "Pre-Project Knowledge Check" [level=2] [ref=e261]
+            - paragraph [ref=e262]: Test your baseline knowledge before we begin.
+        - generic [ref=e263]:
+          - generic [ref=e264]:
+            - generic [ref=e265]: Question 1 of 5
+            - generic [ref=e266]: "Score: 0"
+          - heading "What is the primary purpose of an Inverted Index?" [level=3] [ref=e267]
+          - generic [ref=e268]:
+            - button "To sort documents by length" [ref=e269] [cursor=pointer]:
+              - generic [ref=e270]: To sort documents by length
+            - button "To map terms to the documents that contain them" [ref=e271] [cursor=pointer]:
+              - generic [ref=e272]: To map terms to the documents that contain them
+            - button "To compress text files for storage" [ref=e273] [cursor=pointer]:
+              - generic [ref=e274]: To compress text files for storage
+            - button "To translate queries into SQL" [ref=e275] [cursor=pointer]:
+              - generic [ref=e276]: To translate queries into SQL
+      - generic [ref=e278]:
+        - generic [ref=e279]:
+          - heading "Learning Mode" [level=3] [ref=e280]
+          - paragraph [ref=e281]: Choose how much assistance you want. You can change this at any time.
+        - generic [ref=e282]:
+          - button "Step-by-Step" [ref=e283] [cursor=pointer]:
+            - img [ref=e284]
+            - text: Step-by-Step
+          - button "Some Guidance" [ref=e287] [cursor=pointer]:
+            - img [ref=e288]
+            - text: Some Guidance
+          - button "On Your Own" [ref=e291] [cursor=pointer]:
+            - img [ref=e292]
+            - text: On Your Own
+      - generic [ref=e294]:
+        - generic [ref=e295]:
+          - generic [ref=e297]: "1"
+          - heading "Environment Setup & Bootstrapping" [level=2] [ref=e299]
+        - generic [ref=e300]:
+          - img [ref=e302]
+          - heading "Theoretical Foundation" [level=3] [ref=e307]
+          - paragraph [ref=e309]:
+            - text: Before writing the core logic, we need to set up the development environment. This involves configuring a virtual environment, defining dependencies in
+            - code [ref=e310]: requirements.txt
+            - text: ", and bootstrapping the entry point"
+            - code [ref=e311]: app.py
+            - text: . A structured environment ensures reproducibility and prevents version conflicts when working with data science libraries like pandas, numpy, and nltk.
+        - generic [ref=e312]:
+          - generic [ref=e313]:
+            - img [ref=e314]
+            - heading "Reflection" [level=3] [ref=e316]
+          - paragraph [ref=e317]: What challenges did you face setting up the environment, and why is an isolated virtual environment important for this project?
+          - generic [ref=e318]:
+            - textbox "Type your reflection here..." [active] [ref=e319]
+            - generic [ref=e320]: 0 / 1000
+          - button "Save Reflection" [disabled] [ref=e322] [cursor=pointer]:
+            - img [ref=e323]
+            - text: Save Reflection
+        - generic [ref=e327]:
+          - heading "Implementation Task" [level=3] [ref=e331]
+          - paragraph [ref=e332]:
+            - text: Create your project folder, set up a Python virtual environment, create
+            - code [ref=e333]: requirements.txt
+            - text: with the dependencies listed below, install them, and write a minimal
+            - code [ref=e334]: app.py
+            - text: that spins up a Flask development server.
+        - generic [ref=e335]:
+          - heading "Production Templates" [level=3] [ref=e338]
+          - generic [ref=e339]:
+            - generic [ref=e341]:
+              - generic [ref=e342]:
+                - generic [ref=e343]:
+                  - img [ref=e344]
+                  - generic [ref=e349]: requirements.txt
+                - button "Copy" [ref=e350] [cursor=pointer]:
+                  - img [ref=e351]
+                  - generic [ref=e354]: Copy
+              - code [ref=e357]: flask==3.0.0 flask-cors==4.0.0 pandas==2.1.4 numpy==1.26.2 nltk==3.8.1 openpyxl==3.1.2 python-docx==1.1.0 pdfplumber==0.10.3 python-pptx==0.6.23
+            - generic [ref=e359]:
+              - generic [ref=e360]:
+                - generic [ref=e361]:
+                  - img [ref=e362]
+                  - generic [ref=e367]: app.py (minimal)
+                - button "Copy" [ref=e368] [cursor=pointer]:
+                  - img [ref=e369]
+                  - generic [ref=e372]: Copy
+              - code [ref=e375]:
+                - text: from flask import Flask, jsonify app = Flask(__name__)
+                - text: "@app.route('/')"
+                - text: "def index(): return jsonify({'status': 'IR Engine is running!'})"
+                - text: "if __name__ == '__main__': app.run(host='0.0.0.0', port=5000, debug=True)"
+        - generic [ref=e376]:
+          - img [ref=e379]
+          - generic [ref=e381]:
+            - text: Engineering Insight
+            - paragraph [ref=e382]:
+              - text: Run
+              - code [ref=e383]: python -m venv venv && source venv/bin/activate && pip install -r requirements.txt
+              - text: to set up. Then
+              - code [ref=e384]: python app.py
+              - text: to test.
+        - generic [ref=e386]:
+          - heading "Artifact Capture" [level=3] [ref=e387]
+          - paragraph [ref=e388]: Upload a screenshot of your terminal showing the Flask server running locally on port 5000.
+          - generic [ref=e390] [cursor=pointer]:
+            - img [ref=e391]
+            - generic [ref=e394]: Click to upload screenshot
+            - generic [ref=e395]: PNG, JPG up to 5MB
+      - generic [ref=e396]:
+        - generic [ref=e397]:
+          - generic [ref=e399]: "2"
+          - heading "Data Parsing Module" [level=2] [ref=e401]
+        - generic [ref=e402]:
+          - img [ref=e404]
+          - heading "Theoretical Foundation" [level=3] [ref=e409]
+          - paragraph [ref=e411]: An IR engine is useless without data. The parsing module is responsible for reading datasets (like CSVs), cleaning the data, and standardizing it for the search engine. Robust parsing involves handling missing values gracefully, detecting numeric vs. categorical columns automatically, and supporting multiple file formats (CSV, Excel, PDF, DOCX, PPTX, Markdown).
+        - generic [ref=e412]:
+          - generic [ref=e413]:
+            - img [ref=e414]
+            - heading "Reflection" [level=3] [ref=e416]
+          - paragraph [ref=e417]: How does the FileParser architecture make it easier to add new file formats in the future?
+          - generic [ref=e418]:
+            - textbox "Type your reflection here..." [ref=e419]
+            - generic [ref=e420]: 0 / 1000
+          - button "Save Reflection" [disabled] [ref=e422] [cursor=pointer]:
+            - img [ref=e423]
+            - text: Save Reflection
+        - generic [ref=e427]:
+          - heading "Implementation Task" [level=3] [ref=e431]
+          - paragraph [ref=e432]:
+            - text: Implement
+            - code [ref=e433]: file_parser.py
+            - text: . Create a
+            - code [ref=e434]: FileParser
+            - text: class with a static
+            - code [ref=e435]: parse()
+            - text: method that reads a CSV file and returns a clean list of dictionaries. Use the code below as your starting point, then try adding Excel support with pandas.
+        - generic [ref=e436]:
+          - heading "Production Templates" [level=3] [ref=e439]
+          - generic [ref=e442]:
+            - generic [ref=e443]:
+              - generic [ref=e444]:
+                - img [ref=e445]
+                - generic [ref=e450]: file_parser.py (core)
+              - button "Copy" [ref=e451] [cursor=pointer]:
+                - img [ref=e452]
+                - generic [ref=e455]: Copy
+            - code [ref=e458]:
+              - text: import csv
+              - text: import io
+              - text: from pathlib import Path
+              - text: from typing import Dict, List
+              - text: "class FileParser: SUPPORTED_EXTENSIONS = {'.csv', '.xlsx', '.xls', '.txt'} @classmethod def is_supported(cls, filename: str) -> bool: return Path(filename).suffix.lower() in cls.SUPPORTED_EXTENSIONS @classmethod def parse(cls, file_stream: io.BytesIO, filename: str) -> List[Dict[str, str]]: ext = Path(filename).suffix.lower() if ext == '.csv': return cls._parse_csv(file_stream) raise ValueError(f'Unsupported format: {ext}') @staticmethod def _parse_csv(file_stream: io.BytesIO) -> List[Dict[str, str]]: content = file_stream.read().decode('utf-8') reader = csv.DictReader(io.StringIO(content)) return [dict(row) for row in reader]"
+        - generic [ref=e459]:
+          - img [ref=e462]
+          - generic [ref=e464]:
+            - text: Engineering Insight
+            - paragraph [ref=e465]:
+              - text: "Test your parser by running:"
+              - code [ref=e466]: python -c "from file_parser import FileParser; import io; f=open('ObesityDataSet_raw_and_data_sinthetic.csv','rb'); print(len(FileParser.parse(io.BytesIO(f.read()), 'data.csv')), 'records parsed')"
+        - generic [ref=e468]:
+          - heading "Artifact Capture" [level=3] [ref=e469]
+          - paragraph [ref=e470]: Paste the output of running your parser on the sample dataset, or describe how you handled file format detection.
+          - generic [ref=e471]:
+            - textbox "Type your explanation here..." [ref=e472]
+            - button "Save Answer" [disabled] [ref=e473]
+      - generic [ref=e474]:
+        - generic [ref=e475]:
+          - generic [ref=e477]: "3"
+          - heading "Core Search Engine & Mathematics" [level=2] [ref=e479]
+        - generic [ref=e480]:
+          - img [ref=e482]
+          - heading "Theoretical Foundation" [level=3] [ref=e487]
+          - generic [ref=e488]:
+            - paragraph [ref=e489]:
+              - text: The heart of the IR system. You need to build an
+              - strong [ref=e490]: Inverted Index
+              - text: "— a data structure that maps every term to the documents it appears in. Then, implement ranking algorithms:"
+            - paragraph [ref=e491]:
+              - strong [ref=e492]: "TF-IDF:"
+              - text: Measures term importance. TF (Term Frequency) captures how often a term appears in a document; IDF (Inverse Document Frequency) penalizes terms that appear in many documents.
+            - paragraph [ref=e493]:
+              - strong [ref=e494]: "BM25 (Okapi):"
+              - text: The modern industry standard (used by Elasticsearch/Lucene). It adds document length normalization and term saturation to TF-IDF, producing more accurate relevancy scores.
+            - paragraph [ref=e495]:
+              - strong [ref=e496]: "Boolean Model:"
+              - text: Supports AND, OR, NOT operators for precise filtering queries.
+        - generic [ref=e497]:
+          - generic [ref=e498]:
+            - img [ref=e499]
+            - heading "Reflection" [level=3] [ref=e501]
+          - paragraph [ref=e502]: Explain the difference between TF-IDF and BM25 in your own words. Why might BM25 perform better?
+          - generic [ref=e503]:
+            - textbox "Type your reflection here..." [ref=e504]
+            - generic [ref=e505]: 0 / 1000
+          - button "Save Reflection" [disabled] [ref=e507] [cursor=pointer]:
+            - img [ref=e508]
+            - text: Save Reflection
+        - generic [ref=e512]:
+          - heading "Implementation Task" [level=3] [ref=e516]
+          - paragraph [ref=e517]:
+            - text: Develop
+            - code [ref=e518]: search_engine.py
+            - text: . Start with the
+            - code [ref=e519]: InvertedIndex
+            - text: class, then build the
+            - code [ref=e520]: BM25Model
+            - text: . Use the code snippets below as your foundation. Focus on getting the BM25 formula correct first, then add TF-IDF and Boolean support.
+        - generic [ref=e521]:
+          - heading "Production Templates" [level=3] [ref=e524]
+          - generic [ref=e525]:
+            - generic [ref=e527]:
+              - generic [ref=e528]:
+                - generic [ref=e529]:
+                  - img [ref=e530]
+                  - generic [ref=e535]: search_engine.py — InvertedIndex
+                - button "Copy" [ref=e536] [cursor=pointer]:
+                  - img [ref=e537]
+                  - generic [ref=e540]: Copy
+              - code [ref=e543]:
+                - text: from collections import defaultdict
+                - text: import math
+                - text: "class InvertedIndex: def __init__(self): self.index = defaultdict(lambda: defaultdict(list)) self.doc_count = 0 self.documents = {} self.doc_lengths = {} self.avg_doc_length = 0.0 self.term_doc_freq = defaultdict(int) def build_from_records(self, records): for row in records: self.doc_count += 1 doc_id = self.doc_count self.documents[doc_id] = row doc_terms = [] for field, value in row.items(): tokens = str(value).lower().split() doc_terms.extend(tokens) for pos, term in enumerate(tokens): self.index[term][field].append( {'doc_id': doc_id, 'position': pos} ) self.doc_lengths[doc_id] = len(doc_terms) if self.doc_count > 0: self.avg_doc_length = sum(self.doc_lengths.values()) / self.doc_count"
+            - generic [ref=e545]:
+              - generic [ref=e546]:
+                - generic [ref=e547]:
+                  - img [ref=e548]
+                  - generic [ref=e553]: search_engine.py — BM25
+                - button "Copy" [ref=e554] [cursor=pointer]:
+                  - img [ref=e555]
+                  - generic [ref=e558]: Copy
+              - code [ref=e561]: "class BM25Model: def __init__(self, index, k1=1.5, b=0.75): self.index = index self.k1 = k1 self.b = b def calculate_bm25(self, term, doc_id): tf = self.index.get_term_frequency(term, doc_id) if tf == 0: return 0.0 df = self.index.term_doc_freq.get(term, 0) N = self.index.doc_count idf = math.log((N - df + 0.5) / (df + 0.5) + 1.0) doc_len = self.index.doc_lengths.get(doc_id, 0) avg_len = self.index.avg_doc_length or 1.0 denom = tf + self.k1 * (1 - self.b + self.b * (doc_len / avg_len)) return idf * (tf * (self.k1 + 1) / denom) def search(self, query, top_k=10): terms = query.lower().split() scores = defaultdict(float) for term in terms: if term in self.index.index: for doc_id in self.index.get_postings(term): scores[doc_id] += self.calculate_bm25(term, doc_id) return sorted(scores.items(), key=lambda x: x[1], reverse=True)[:top_k]"
+        - generic [ref=e562]:
+          - img [ref=e565]
+          - generic [ref=e567]:
+            - text: Engineering Insight
+            - paragraph [ref=e568]: "The BM25 formula is: score(D,Q) = Σ IDF(qi) · (f(qi,D) · (k1+1)) / (f(qi,D) + k1 · (1-b+b · |D|/avgdl)). Try searching 'obesity' and verify you get ranked results."
+        - generic [ref=e570]:
+          - heading "Artifact Capture" [level=3] [ref=e571]
+          - paragraph [ref=e572]: Explain briefly how your BM25 ranking algorithm works, or paste sample output from a test query.
+          - generic [ref=e573]:
+            - textbox "Type your explanation here..." [ref=e574]
+            - button "Save Answer" [disabled] [ref=e575]
+      - generic [ref=e576]:
+        - generic [ref=e577]:
+          - generic [ref=e579]: "4"
+          - heading "Flask API Endpoints" [level=2] [ref=e581]
+        - generic [ref=e582]:
+          - img [ref=e584]
+          - heading "Theoretical Foundation" [level=3] [ref=e589]
+          - paragraph [ref=e591]: With the engine built, it needs to be accessible over the web. RESTful API endpoints act as the bridge between the frontend UI and the backend Python logic. Each endpoint handles JSON payloads, executes the search on the instantiated engine, and returns structured JSON responses containing ranking scores and document metadata. You should also add safety features like input sanitization and rate limiting.
+        - generic [ref=e592]:
+          - generic [ref=e593]:
+            - img [ref=e594]
+            - heading "Reflection" [level=3] [ref=e596]
+          - paragraph [ref=e597]: Why did we use a POST request for the search endpoint instead of a GET request?
+          - generic [ref=e598]:
+            - textbox "Type your reflection here..." [ref=e599]
+            - generic [ref=e600]: 0 / 1000
+          - button "Save Reflection" [disabled] [ref=e602] [cursor=pointer]:
+            - img [ref=e603]
+            - text: Save Reflection
+        - generic [ref=e607]:
+          - heading "Implementation Task" [level=3] [ref=e611]
+          - paragraph [ref=e612]:
+            - text: Expand
+            - code [ref=e613]: app.py
+            - text: to initialize the SearchEngine and add the API routes shown below. Test each endpoint with cURL or Postman to verify they return valid JSON responses.
+        - generic [ref=e614]:
+          - heading "Production Templates" [level=3] [ref=e617]
+          - generic [ref=e618]:
+            - generic [ref=e620]:
+              - generic [ref=e621]:
+                - generic [ref=e622]:
+                  - img [ref=e623]
+                  - generic [ref=e628]: app.py — Search Endpoint
+                - button "Copy" [ref=e629] [cursor=pointer]:
+                  - img [ref=e630]
+                  - generic [ref=e633]: Copy
+              - code [ref=e636]:
+                - text: from search_engine import SearchEngine
+                - text: import time
+                - text: "# Initialize globally search_engine = SearchEngine(csv_path='ObesityDataSet_raw_and_data_sinthetic.csv')"
+                - text: "@app.route('/api/search', methods=['POST'])"
+                - text: "def api_search(): data = request.get_json() or {} query = data.get('query', '') model = data.get('model', 'bm25') top_k = min(data.get('top_k', 10), 500) start = time.time() results = search_engine.search(query, model=model, top_k=top_k) elapsed = (time.time() - start) * 1000 return jsonify({ 'query': query, 'model': model, 'results': results, 'total_results': len(results), 'search_time_ms': round(elapsed, 2) })"
+            - generic [ref=e638]:
+              - generic [ref=e639]:
+                - generic [ref=e640]:
+                  - img [ref=e641]
+                  - generic [ref=e646]: app.py — Statistics & Suggestions
+                - button "Copy" [ref=e647] [cursor=pointer]:
+                  - img [ref=e648]
+                  - generic [ref=e651]: Copy
+              - code [ref=e654]:
+                - text: "@app.route('/api/statistics', methods=['GET'])"
+                - text: "def api_statistics(): return jsonify({ 'total_documents': search_engine.index.doc_count, 'unique_terms': len(search_engine.index.index), 'average_document_length': round(search_engine.index.avg_doc_length, 2) })"
+                - text: "@app.route('/api/suggestions', methods=['GET'])"
+                - text: "def api_suggestions(): suggestions = search_engine.get_suggested_queries(count=10) return jsonify(suggestions)"
+            - generic [ref=e656]:
+              - generic [ref=e657]:
+                - generic [ref=e658]:
+                  - img [ref=e659]
+                  - generic [ref=e664]: Terminal — Test with cURL
+                - button "Copy" [ref=e665] [cursor=pointer]:
+                  - img [ref=e666]
+                  - generic [ref=e669]: Copy
+              - code [ref=e672]:
+                - text: "# Test the search endpoint"
+                - text: "curl -X POST http://localhost:5000/api/search \\ -H 'Content-Type: application/json' \\ -d '{\"query\": \"obesity\", \"model\": \"bm25\", \"top_k\": 5}'"
+                - text: "# Test statistics"
+                - text: curl http://localhost:5000/api/statistics
+        - generic [ref=e673]:
+          - img [ref=e676]
+          - generic [ref=e678]:
+            - text: Engineering Insight
+            - paragraph [ref=e679]:
+              - text: Make sure to call
+              - code [ref=e680]: initialize_search_engine()
+              - text: in
+              - code [ref=e681]: "if __name__ == '__main__':"
+              - text: before
+              - code [ref=e682]: app.run()
+              - text: ". You can test with: curl -X POST localhost:5000/api/search -H 'Content-Type: application/json' -d '{\"query\":\"obesity\"}'"
+        - generic [ref=e684]:
+          - heading "Artifact Capture" [level=3] [ref=e685]
+          - paragraph [ref=e686]: "Upload a screenshot of a successful API response from `/api/search` (using cURL, Postman, or your browser)."
+          - generic [ref=e688] [cursor=pointer]:
+            - img [ref=e689]
+            - generic [ref=e692]: Click to upload screenshot
+            - generic [ref=e693]: PNG, JPG up to 5MB
+      - generic [ref=e694]:
+        - generic [ref=e695]:
+          - generic [ref=e697]: "5"
+          - heading "Frontend Integration" [level=2] [ref=e699]
+        - generic [ref=e700]:
+          - img [ref=e702]
+          - heading "Theoretical Foundation" [level=3] [ref=e707]
+          - paragraph [ref=e709]:
+            - text: A powerful backend is best showcased with an intuitive frontend. Flask serves HTML templates using Jinja2 and static assets (CSS/JS). Your frontend will call the
+            - code [ref=e710]: /api/search
+            - text: endpoint via JavaScript
+            - code [ref=e711]: fetch()
+            - text: ", rendering results dynamically without full page reloads. This gives users a smooth, modern search experience."
+        - generic [ref=e712]:
+          - generic [ref=e713]:
+            - img [ref=e714]
+            - heading "Reflection" [level=3] [ref=e716]
+          - paragraph [ref=e717]: How does asynchronous data fetching (fetch/async/await) improve the user experience in the frontend?
+          - generic [ref=e718]:
+            - textbox "Type your reflection here..." [ref=e719]
+            - generic [ref=e720]: 0 / 1000
+          - button "Save Reflection" [disabled] [ref=e722] [cursor=pointer]:
+            - img [ref=e723]
+            - text: Save Reflection
+        - generic [ref=e727]:
+          - heading "Implementation Task" [level=3] [ref=e731]
+          - paragraph [ref=e732]:
+            - text: Set up your
+            - code [ref=e733]: templates/
+            - text: and
+            - code [ref=e734]: static/
+            - text: directories. Create a base template, a search page that calls your API via fetch(), and display ranked results. Use the structure below as a starting point.
+        - generic [ref=e735]:
+          - heading "Production Templates" [level=3] [ref=e738]
+          - generic [ref=e739]:
+            - generic [ref=e741]:
+              - generic [ref=e742]:
+                - generic [ref=e743]:
+                  - img [ref=e744]
+                  - generic [ref=e749]: templates/index.html
+                - button "Copy" [ref=e750] [cursor=pointer]:
+                  - img [ref=e751]
+                  - generic [ref=e754]: Copy
+              - code [ref=e757]:
+                - text: <!DOCTYPE html>
+                - text: <html>
+                - text: <head> <title>IR Search Engine</title> <link rel="stylesheet" href="/static/css/style.css">
+                - text: </head>
+                - text: "<body> <h1>🔍 Information Retrieval Engine</h1> <input type=\"text\" id=\"query\" placeholder=\"Search...\"> <select id=\"model\"> <option value=\"bm25\">BM25</option> <option value=\"tfidf\">TF-IDF</option> <option value=\"boolean\">Boolean</option> </select> <button onclick=\"doSearch()\">Search</button> <div id=\"results\"></div> <script> async function doSearch() { const query = document.getElementById('query').value; const model = document.getElementById('model').value; const res = await fetch('/api/search', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({query, model, top_k: 10}) }); const data = await res.json(); const div = document.getElementById('results'); div.innerHTML = data.results.map((r, i) => `<div class=\"result\"> <strong>#${i+1}</strong> (score: ${r.score.toFixed(4)}) <pre>${JSON.stringify(r.document, null, 2)}</pre> </div>` ).join(''); } </script>"
+                - text: </body>
+                - text: </html>
+            - generic [ref=e759]:
+              - generic [ref=e760]:
+                - generic [ref=e761]:
+                  - img [ref=e762]
+                  - generic [ref=e767]: app.py — Serve the template
+                - button "Copy" [ref=e768] [cursor=pointer]:
+                  - img [ref=e769]
+                  - generic [ref=e772]: Copy
+              - code [ref=e775]:
+                - text: from flask import render_template
+                - text: "@app.route('/')"
+                - text: "def index_route(): return render_template('index.html')"
+        - generic [ref=e776]:
+          - img [ref=e779]
+          - generic [ref=e781]:
+            - text: Engineering Insight
+            - paragraph [ref=e782]:
+              - text: Create
+              - code [ref=e783]: templates/
+              - text: and
+              - code [ref=e784]: static/css/
+              - text: directories. Place your HTML in
+              - code [ref=e785]: templates/index.html
+              - text: and your CSS in
+              - code [ref=e786]: static/css/style.css
+              - text: . Flask auto-discovers these folders.
+        - generic [ref=e788]:
+          - heading "Artifact Capture" [level=3] [ref=e789]
+          - paragraph [ref=e790]: Upload a screenshot of the final working Search Interface in your browser showing ranked search results.
+          - generic [ref=e792] [cursor=pointer]:
+            - img [ref=e793]
+            - generic [ref=e796]: Click to upload screenshot
+            - generic [ref=e797]: PNG, JPG up to 5MB
+      - generic [ref=e798]:
+        - generic [ref=e799]:
+          - generic [ref=e801]: "6"
+          - heading "E2E Testing & Quality Assurance" [level=2] [ref=e803]
+        - generic [ref=e804]:
+          - img [ref=e806]
+          - heading "Theoretical Foundation" [level=3] [ref=e811]
+          - paragraph [ref=e813]:
+            - text: A professional search engine must be reliable.
+            - strong [ref=e814]: End-to-End (E2E) Testing
+            - text: simulates real user interactions to ensure that from the moment a user types a query to when results appear, every component (Frontend, API, Search Engine) is working correctly. In IR, we also use
+            - strong [ref=e815]: Regression Testing
+            - text: to ensure that algorithm tweaks don't negatively impact result quality for known 'golden queries'.
+        - generic [ref=e816]:
+          - generic [ref=e817]:
+            - img [ref=e818]
+            - heading "Reflection" [level=3] [ref=e820]
+          - paragraph [ref=e821]: What edge cases did you consider in your E2E tests, and why is regression testing critical for an IR engine?
+          - generic [ref=e822]:
+            - textbox "Type your reflection here..." [ref=e823]
+            - generic [ref=e824]: 0 / 1000
+          - button "Save Reflection" [disabled] [ref=e826] [cursor=pointer]:
+            - img [ref=e827]
+            - text: Save Reflection
+        - generic [ref=e831]:
+          - heading "Implementation Task" [level=3] [ref=e835]
+          - paragraph [ref=e836]:
+            - text: Create a test suite to verify your search engine. Implement a simple Python script using
+            - code [ref=e837]: unittest
+            - text: or
+            - code [ref=e838]: pytest
+            - text: that programmatically calls your Flask API and asserts that specific known documents appear in the results for relevant queries.
+        - generic [ref=e839]:
+          - heading "Production Templates" [level=3] [ref=e842]
+          - generic [ref=e843]:
+            - generic [ref=e845]:
+              - generic [ref=e846]:
+                - generic [ref=e847]:
+                  - img [ref=e848]
+                  - generic [ref=e853]: test_search.py
+                - button "Copy" [ref=e854] [cursor=pointer]:
+                  - img [ref=e855]
+                  - generic [ref=e858]: Copy
+              - code [ref=e861]:
+                - text: import unittest
+                - text: import requests
+                - text: "class TestSearchEngine(unittest.TestCase): BASE_URL = 'http://localhost:5000' def test_health_check(self): response = requests.get(f'{self.BASE_URL}/api/statistics') self.assertEqual(response.status_code, 200) self.assertIn('total_documents', response.json()) def test_bm25_ranking(self): # Search for 'obesity' and check results payload = {'query': 'obesity', 'model': 'bm25', 'top_k': 5} response = requests.post(f'{self.BASE_URL}/api/search', json=payload) data = response.json() self.assertEqual(response.status_code, 200) self.assertGreater(len(data['results']), 0) # Verify the top result has a valid score self.assertGreater(data['results'][0]['score'], 0)"
+            - generic [ref=e863]:
+              - generic [ref=e864]:
+                - generic [ref=e865]:
+                  - img [ref=e866]
+                  - generic [ref=e871]: Terminal — Run Tests
+                - button "Copy" [ref=e872] [cursor=pointer]:
+                  - img [ref=e873]
+                  - generic [ref=e876]: Copy
+              - code [ref=e879]: "# Ensure your app.py is running in another terminal python -m unittest test_search.py"
+        - generic [ref=e880]:
+          - img [ref=e883]
+          - generic [ref=e885]:
+            - text: Engineering Insight
+            - paragraph [ref=e886]: Professional IR systems use 'Golden Sets' (a list of queries and their expected top results) to measure accuracy (Precision/Recall). Try creating your own Golden Set!
+        - generic [ref=e888]:
+          - heading "Artifact Capture" [level=3] [ref=e889]
+          - paragraph [ref=e890]: Paste your test results output here, or describe one edge case (like searching for stop-words) that your tests identified.
+          - generic [ref=e891]:
+            - textbox "Type your explanation here..." [ref=e892]
+            - button "Save Answer" [disabled] [ref=e893]
+      - generic [ref=e895]:
+        - generic [ref=e896]:
+          - heading "Learning Outcomes" [level=2] [ref=e899]
+          - paragraph [ref=e901]: Technical Mastery & Workflow
+        - generic [ref=e902]:
+          - generic [ref=e903]:
+            - img [ref=e906]
+            - generic [ref=e909]:
+              - heading "Python Ecosystem Setup" [level=3] [ref=e910]
+              - paragraph [ref=e911]: Set up a robust data science environment utilizing Flask, pandas, and NLTK for natural language processing.
+              - generic [ref=e912]:
+                - img [ref=e913]
+                - generic [ref=e916]: Mastery Verified
+          - generic [ref=e917]:
+            - img [ref=e920]
+            - generic [ref=e923]:
+              - heading "Multi-format Parsing" [level=3] [ref=e924]
+              - paragraph [ref=e925]: Built an extensible file parser capable of ingesting and normalizing structured and unstructured data formats.
+              - generic [ref=e926]:
+                - img [ref=e927]
+                - generic [ref=e930]: Mastery Verified
+          - generic [ref=e931]:
+            - img [ref=e934]
+            - generic [ref=e937]:
+              - heading "Algorithmic Ranking" [level=3] [ref=e938]
+              - paragraph [ref=e939]: Implemented state-of-the-art TF-IDF and BM25 ranking algorithms from theoretical foundations to production code.
+              - generic [ref=e940]:
+                - img [ref=e941]
+                - generic [ref=e944]: Mastery Verified
+          - generic [ref=e945]:
+            - img [ref=e948]
+            - generic [ref=e951]:
+              - heading "Boolean Logic Search" [level=3] [ref=e952]
+              - paragraph [ref=e953]: Engineered exact-match boolean query parsing supporting complex AND, OR, and NOT logical operators.
+              - generic [ref=e954]:
+                - img [ref=e955]
+                - generic [ref=e958]: Mastery Verified
+          - generic [ref=e959]:
+            - img [ref=e962]
+            - generic [ref=e965]:
+              - heading "REST API Architecture" [level=3] [ref=e966]
+              - paragraph [ref=e967]: Designed and exposed core search functionality through secure, scalable RESTful API endpoints using Flask.
+              - generic [ref=e968]:
+                - img [ref=e969]
+                - generic [ref=e972]: Mastery Verified
+          - generic [ref=e973]:
+            - img [ref=e976]
+            - generic [ref=e979]:
+              - heading "Frontend Integration" [level=3] [ref=e980]
+              - paragraph [ref=e981]: Seamlessly connected a modern web interface to the backend system using asynchronous JavaScript.
+              - generic [ref=e982]:
+                - img [ref=e983]
+                - generic [ref=e986]: Mastery Verified
+          - generic [ref=e987]:
+            - img [ref=e990]
+            - generic [ref=e993]:
+              - heading "Quality Assurance" [level=3] [ref=e994]
+              - paragraph [ref=e995]: Developed comprehensive regression testing suites to ensure consistent, high-quality search relevance.
+              - generic [ref=e996]:
+                - img [ref=e997]
+                - generic [ref=e1000]: Mastery Verified
+    - button "Documentation" [ref=e1001] [cursor=pointer]:
+      - img [ref=e1002]
+      - generic [ref=e1005]: Documentation
+    - generic [ref=e1007]:
+      - generic [ref=e1008]:
+        - generic [ref=e1009]:
+          - img [ref=e1010]
+          - generic [ref=e1013]: Project Dossier
+        - generic [ref=e1014]:
+          - generic [ref=e1015]:
+            - button "Light" [ref=e1016] [cursor=pointer]
+            - button "Dark" [ref=e1017] [cursor=pointer]
+            - button "Warm" [ref=e1018] [cursor=pointer]
+            - button "Ocean" [ref=e1019] [cursor=pointer]
+          - button [ref=e1020] [cursor=pointer]:
+            - img [ref=e1021]
+          - button [ref=e1026] [cursor=pointer]:
+            - img [ref=e1027]
+      - generic [ref=e1030]:
+        - generic [ref=e1031]:
+          - img [ref=e1034]
+          - heading "Information Retrieval Engine" [level=1] [ref=e1037]:
+            - generic [ref=e1038]: Information
+            - generic [ref=e1039]: Retrieval
+            - generic [ref=e1040]: Engine
+          - paragraph [ref=e1043]: Belalia Mohamed Oussama
+          - paragraph [ref=e1045]: May 2026
+        - generic [ref=e1046]:
+          - generic [ref=e1047]:
+            - heading "Abstract" [level=2] [ref=e1050]
+            - generic [ref=e1051]:
+              - paragraph [ref=e1052]:
+                - text: Welcome to building your own
+                - strong [ref=e1053]: Information Retrieval Engine
+                - text: with Python and Flask! 🚀
+              - paragraph [ref=e1054]:
+                - text: Ever wondered how search engines find exactly what you need in millions of documents? Whether it's Google ranking web pages or Elasticsearch powering e-commerce search, they all rely on core IR algorithms like
+                - strong [ref=e1055]: TF-IDF
+                - text: and
+                - strong [ref=e1056]: BM25
+                - text: .
+              - paragraph [ref=e1057]:
+                - text: In this project, you'll build your own powerful search system from scratch. You'll parse real datasets, construct an
+                - strong [ref=e1058]: Inverted Index
+                - text: ", implement mathematical ranking models, expose everything through a"
+                - strong [ref=e1059]: Flask REST API
+                - text: ", and wire up a clean web frontend to interact with it all."
+          - generic [ref=e1060]:
+            - heading "Key Objectives" [level=2] [ref=e1063]
+            - generic [ref=e1064]:
+              - generic [ref=e1065]:
+                - img [ref=e1066]
+                - generic [ref=e1070]: Set up a Python environment and install data science dependencies.
+              - generic [ref=e1071]:
+                - img [ref=e1072]
+                - generic [ref=e1076]: Build a multi-format file parser to ingest CSV, PDF, DOCX, and more.
+              - generic [ref=e1077]:
+                - img [ref=e1078]
+                - generic [ref=e1082]: Implement TF-IDF, BM25, and Boolean search from scratch.
+              - generic [ref=e1083]:
+                - img [ref=e1084]
+                - generic [ref=e1088]: Create RESTful API endpoints with Flask for search and statistics.
+              - generic [ref=e1089]:
+                - img [ref=e1090]
+                - generic [ref=e1094]: Build a responsive web frontend to interact with your engine.
+          - generic [ref=e1095]:
+            - generic [ref=e1096]:
+              - generic [ref=e1100]: Phase 1
+              - heading "Environment Setup & Bootstrapping" [level=3] [ref=e1101]
+              - generic [ref=e1102]:
+                - paragraph [ref=e1103]: Theoretical Context
+                - paragraph [ref=e1105]:
+                  - text: Before writing the core logic, we need to set up the development environment. This involves configuring a virtual environment, defining dependencies in
+                  - code [ref=e1106]: requirements.txt
+                  - text: ", and bootstrapping the entry point"
+                  - code [ref=e1107]: app.py
+                  - text: . A structured environment ensures reproducibility and prevents version conflicts when working with data science libraries like pandas, numpy, and nltk.
+              - generic [ref=e1108]:
+                - paragraph [ref=e1109]: Requirement
+                - paragraph [ref=e1110]:
+                  - text: Create your project folder, set up a Python virtual environment, create
+                  - code [ref=e1111]: requirements.txt
+                  - text: with the dependencies listed below, install them, and write a minimal
+                  - code [ref=e1112]: app.py
+                  - text: that spins up a Flask development server.
+              - generic [ref=e1113]:
+                - generic [ref=e1114]:
+                  - generic [ref=e1115]: requirements.txt
+                  - code [ref=e1118]: flask==3.0.0 flask-cors==4.0.0 pandas==2.1.4 numpy==1.26.2 nltk==3.8.1 openpyxl==3.1.2 python-docx==1.1.0 pdfplumber==0.10.3 python-pptx==0.6.23
+                - generic [ref=e1119]:
+                  - generic [ref=e1120]: app.py (minimal)
+                  - code [ref=e1123]:
+                    - text: from flask import Flask, jsonify app = Flask(__name__)
+                    - text: "@app.route('/')"
+                    - text: "def index(): return jsonify({'status': 'IR Engine is running!'})"
+                    - text: "if __name__ == '__main__': app.run(host='0.0.0.0', port=5000, debug=True)"
+            - generic [ref=e1124]:
+              - generic [ref=e1128]: Phase 2
+              - heading "Data Parsing Module" [level=3] [ref=e1129]
+              - generic [ref=e1130]:
+                - paragraph [ref=e1131]: Theoretical Context
+                - paragraph [ref=e1133]: An IR engine is useless without data. The parsing module is responsible for reading datasets (like CSVs), cleaning the data, and standardizing it for the search engine. Robust parsing involves handling missing values gracefully, detecting numeric vs. categorical columns automatically, and supporting multiple file formats (CSV, Excel, PDF, DOCX, PPTX, Markdown).
+              - generic [ref=e1134]:
+                - paragraph [ref=e1135]: Requirement
+                - paragraph [ref=e1136]:
+                  - text: Implement
+                  - code [ref=e1137]: file_parser.py
+                  - text: . Create a
+                  - code [ref=e1138]: FileParser
+                  - text: class with a static
+                  - code [ref=e1139]: parse()
+                  - text: method that reads a CSV file and returns a clean list of dictionaries. Use the code below as your starting point, then try adding Excel support with pandas.
+              - generic [ref=e1141]:
+                - generic [ref=e1142]: file_parser.py (core)
+                - code [ref=e1145]:
+                  - text: import csv
+                  - text: import io
+                  - text: from pathlib import Path
+                  - text: from typing import Dict, List
+                  - text: "class FileParser: SUPPORTED_EXTENSIONS = {'.csv', '.xlsx', '.xls', '.txt'} @classmethod def is_supported(cls, filename: str) -> bool: return Path(filename).suffix.lower() in cls.SUPPORTED_EXTENSIONS @classmethod def parse(cls, file_stream: io.BytesIO, filename: str) -> List[Dict[str, str]]: ext = Path(filename).suffix.lower() if ext == '.csv': return cls._parse_csv(file_stream) raise ValueError(f'Unsupported format: {ext}') @staticmethod def _parse_csv(file_stream: io.BytesIO) -> List[Dict[str, str]]: content = file_stream.read().decode('utf-8') reader = csv.DictReader(io.StringIO(content)) return [dict(row) for row in reader]"
+            - generic [ref=e1146]:
+              - generic [ref=e1150]: Phase 3
+              - heading "Core Search Engine & Mathematics" [level=3] [ref=e1151]
+              - generic [ref=e1152]:
+                - paragraph [ref=e1153]: Theoretical Context
+                - generic [ref=e1154]:
+                  - paragraph [ref=e1155]:
+                    - text: The heart of the IR system. You need to build an
+                    - strong [ref=e1156]: Inverted Index
+                    - text: "— a data structure that maps every term to the documents it appears in. Then, implement ranking algorithms:"
+                  - paragraph [ref=e1157]:
+                    - strong [ref=e1158]: "TF-IDF:"
+                    - text: Measures term importance. TF (Term Frequency) captures how often a term appears in a document; IDF (Inverse Document Frequency) penalizes terms that appear in many documents.
+                  - paragraph [ref=e1159]:
+                    - strong [ref=e1160]: "BM25 (Okapi):"
+                    - text: The modern industry standard (used by Elasticsearch/Lucene). It adds document length normalization and term saturation to TF-IDF, producing more accurate relevancy scores.
+                  - paragraph [ref=e1161]:
+                    - strong [ref=e1162]: "Boolean Model:"
+                    - text: Supports AND, OR, NOT operators for precise filtering queries.
+              - generic [ref=e1163]:
+                - paragraph [ref=e1164]: Requirement
+                - paragraph [ref=e1165]:
+                  - text: Develop
+                  - code [ref=e1166]: search_engine.py
+                  - text: . Start with the
+                  - code [ref=e1167]: InvertedIndex
+                  - text: class, then build the
+                  - code [ref=e1168]: BM25Model
+                  - text: . Use the code snippets below as your foundation. Focus on getting the BM25 formula correct first, then add TF-IDF and Boolean support.
+              - generic [ref=e1169]:
+                - generic [ref=e1170]:
+                  - generic [ref=e1171]: search_engine.py — InvertedIndex
+                  - code [ref=e1174]:
+                    - text: from collections import defaultdict
+                    - text: import math
+                    - text: "class InvertedIndex: def __init__(self): self.index = defaultdict(lambda: defaultdict(list)) self.doc_count = 0 self.documents = {} self.doc_lengths = {} self.avg_doc_length = 0.0 self.term_doc_freq = defaultdict(int) def build_from_records(self, records): for row in records: self.doc_count += 1 doc_id = self.doc_count self.documents[doc_id] = row doc_terms = [] for field, value in row.items(): tokens = str(value).lower().split() doc_terms.extend(tokens) for pos, term in enumerate(tokens): self.index[term][field].append( {'doc_id': doc_id, 'position': pos} ) self.doc_lengths[doc_id] = len(doc_terms) if self.doc_count > 0: self.avg_doc_length = sum(self.doc_lengths.values()) / self.doc_count"
+                - generic [ref=e1175]:
+                  - generic [ref=e1176]: search_engine.py — BM25
+                  - code [ref=e1179]: "class BM25Model: def __init__(self, index, k1=1.5, b=0.75): self.index = index self.k1 = k1 self.b = b def calculate_bm25(self, term, doc_id): tf = self.index.get_term_frequency(term, doc_id) if tf == 0: return 0.0 df = self.index.term_doc_freq.get(term, 0) N = self.index.doc_count idf = math.log((N - df + 0.5) / (df + 0.5) + 1.0) doc_len = self.index.doc_lengths.get(doc_id, 0) avg_len = self.index.avg_doc_length or 1.0 denom = tf + self.k1 * (1 - self.b + self.b * (doc_len / avg_len)) return idf * (tf * (self.k1 + 1) / denom) def search(self, query, top_k=10): terms = query.lower().split() scores = defaultdict(float) for term in terms: if term in self.index.index: for doc_id in self.index.get_postings(term): scores[doc_id] += self.calculate_bm25(term, doc_id) return sorted(scores.items(), key=lambda x: x[1], reverse=True)[:top_k]"
+            - generic [ref=e1180]:
+              - generic [ref=e1184]: Phase 4
+              - heading "Flask API Endpoints" [level=3] [ref=e1185]
+              - generic [ref=e1186]:
+                - paragraph [ref=e1187]: Theoretical Context
+                - paragraph [ref=e1189]: With the engine built, it needs to be accessible over the web. RESTful API endpoints act as the bridge between the frontend UI and the backend Python logic. Each endpoint handles JSON payloads, executes the search on the instantiated engine, and returns structured JSON responses containing ranking scores and document metadata. You should also add safety features like input sanitization and rate limiting.
+              - generic [ref=e1190]:
+                - paragraph [ref=e1191]: Requirement
+                - paragraph [ref=e1192]:
+                  - text: Expand
+                  - code [ref=e1193]: app.py
+                  - text: to initialize the SearchEngine and add the API routes shown below. Test each endpoint with cURL or Postman to verify they return valid JSON responses.
+              - generic [ref=e1194]:
+                - generic [ref=e1195]:
+                  - generic [ref=e1196]: app.py — Search Endpoint
+                  - code [ref=e1199]:
+                    - text: from search_engine import SearchEngine
+                    - text: import time
+                    - text: "# Initialize globally search_engine = SearchEngine(csv_path='ObesityDataSet_raw_and_data_sinthetic.csv')"
+                    - text: "@app.route('/api/search', methods=['POST'])"
+                    - text: "def api_search(): data = request.get_json() or {} query = data.get('query', '') model = data.get('model', 'bm25') top_k = min(data.get('top_k', 10), 500) start = time.time() results = search_engine.search(query, model=model, top_k=top_k) elapsed = (time.time() - start) * 1000 return jsonify({ 'query': query, 'model': model, 'results': results, 'total_results': len(results), 'search_time_ms': round(elapsed, 2) })"
+                - generic [ref=e1200]:
+                  - generic [ref=e1201]: app.py — Statistics & Suggestions
+                  - code [ref=e1204]:
+                    - text: "@app.route('/api/statistics', methods=['GET'])"
+                    - text: "def api_statistics(): return jsonify({ 'total_documents': search_engine.index.doc_count, 'unique_terms': len(search_engine.index.index), 'average_document_length': round(search_engine.index.avg_doc_length, 2) })"
+                    - text: "@app.route('/api/suggestions', methods=['GET'])"
+                    - text: "def api_suggestions(): suggestions = search_engine.get_suggested_queries(count=10) return jsonify(suggestions)"
+                - generic [ref=e1205]:
+                  - generic [ref=e1206]: Terminal — Test with cURL
+                  - code [ref=e1209]:
+                    - text: "# Test the search endpoint"
+                    - text: "curl -X POST http://localhost:5000/api/search \\ -H 'Content-Type: application/json' \\ -d '{\"query\": \"obesity\", \"model\": \"bm25\", \"top_k\": 5}'"
+                    - text: "# Test statistics"
+                    - text: curl http://localhost:5000/api/statistics
+            - generic [ref=e1210]:
+              - generic [ref=e1214]: Phase 5
+              - heading "Frontend Integration" [level=3] [ref=e1215]
+              - generic [ref=e1216]:
+                - paragraph [ref=e1217]: Theoretical Context
+                - paragraph [ref=e1219]:
+                  - text: A powerful backend is best showcased with an intuitive frontend. Flask serves HTML templates using Jinja2 and static assets (CSS/JS). Your frontend will call the
+                  - code [ref=e1220]: /api/search
+                  - text: endpoint via JavaScript
+                  - code [ref=e1221]: fetch()
+                  - text: ", rendering results dynamically without full page reloads. This gives users a smooth, modern search experience."
+              - generic [ref=e1222]:
+                - paragraph [ref=e1223]: Requirement
+                - paragraph [ref=e1224]:
+                  - text: Set up your
+                  - code [ref=e1225]: templates/
+                  - text: and
+                  - code [ref=e1226]: static/
+                  - text: directories. Create a base template, a search page that calls your API via fetch(), and display ranked results. Use the structure below as a starting point.
+              - generic [ref=e1227]:
+                - generic [ref=e1228]:
+                  - generic [ref=e1229]: templates/index.html
+                  - code [ref=e1232]:
+                    - text: <!DOCTYPE html>
+                    - text: <html>
+                    - text: <head> <title>IR Search Engine</title> <link rel="stylesheet" href="/static/css/style.css">
+                    - text: </head>
+                    - text: "<body> <h1>🔍 Information Retrieval Engine</h1> <input type=\"text\" id=\"query\" placeholder=\"Search...\"> <select id=\"model\"> <option value=\"bm25\">BM25</option> <option value=\"tfidf\">TF-IDF</option> <option value=\"boolean\">Boolean</option> </select> <button onclick=\"doSearch()\">Search</button> <div id=\"results\"></div> <script> async function doSearch() { const query = document.getElementById('query').value; const model = document.getElementById('model').value; const res = await fetch('/api/search', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({query, model, top_k: 10}) }); const data = await res.json(); const div = document.getElementById('results'); div.innerHTML = data.results.map((r, i) => `<div class=\"result\"> <strong>#${i+1}</strong> (score: ${r.score.toFixed(4)}) <pre>${JSON.stringify(r.document, null, 2)}</pre> </div>` ).join(''); } </script>"
+                    - text: </body>
+                    - text: </html>
+                - generic [ref=e1233]:
+                  - generic [ref=e1234]: app.py — Serve the template
+                  - code [ref=e1237]:
+                    - text: from flask import render_template
+                    - text: "@app.route('/')"
+                    - text: "def index_route(): return render_template('index.html')"
+            - generic [ref=e1238]:
+              - generic [ref=e1242]: Phase 6
+              - heading "E2E Testing & Quality Assurance" [level=3] [ref=e1243]
+              - generic [ref=e1244]:
+                - paragraph [ref=e1245]: Theoretical Context
+                - paragraph [ref=e1247]:
+                  - text: A professional search engine must be reliable.
+                  - strong [ref=e1248]: End-to-End (E2E) Testing
+                  - text: simulates real user interactions to ensure that from the moment a user types a query to when results appear, every component (Frontend, API, Search Engine) is working correctly. In IR, we also use
+                  - strong [ref=e1249]: Regression Testing
+                  - text: to ensure that algorithm tweaks don't negatively impact result quality for known 'golden queries'.
+              - generic [ref=e1250]:
+                - paragraph [ref=e1251]: Requirement
+                - paragraph [ref=e1252]:
+                  - text: Create a test suite to verify your search engine. Implement a simple Python script using
+                  - code [ref=e1253]: unittest
+                  - text: or
+                  - code [ref=e1254]: pytest
+                  - text: that programmatically calls your Flask API and asserts that specific known documents appear in the results for relevant queries.
+              - generic [ref=e1255]:
+                - generic [ref=e1256]:
+                  - generic [ref=e1257]: test_search.py
+                  - code [ref=e1260]:
+                    - text: import unittest
+                    - text: import requests
+                    - text: "class TestSearchEngine(unittest.TestCase): BASE_URL = 'http://localhost:5000' def test_health_check(self): response = requests.get(f'{self.BASE_URL}/api/statistics') self.assertEqual(response.status_code, 200) self.assertIn('total_documents', response.json()) def test_bm25_ranking(self): # Search for 'obesity' and check results payload = {'query': 'obesity', 'model': 'bm25', 'top_k': 5} response = requests.post(f'{self.BASE_URL}/api/search', json=payload) data = response.json() self.assertEqual(response.status_code, 200) self.assertGreater(len(data['results']), 0) # Verify the top result has a valid score self.assertGreater(data['results'][0]['score'], 0)"
+                - generic [ref=e1261]:
+                  - generic [ref=e1262]: Terminal — Run Tests
+                  - code [ref=e1265]: "# Ensure your app.py is running in another terminal python -m unittest test_search.py"
+          - generic [ref=e1266]:
+            - heading "Technical Playbook" [level=2] [ref=e1269]
+            - generic [ref=e1270]:
+              - generic [ref=e1271]:
+                - heading "Testing Strategies" [level=4] [ref=e1272]
+                - generic [ref=e1273]:
+                  - paragraph [ref=e1274]:
+                    - strong [ref=e1275]: "Unit Testing:"
+                    - text: "Focus on verifying the mathematical correctness of your `BM25` and `TF-IDF` formulas. Isolated tests ensure your ranking logic is flawless before integration."
+                  - paragraph [ref=e1276]:
+                    - strong [ref=e1277]: "Integration Testing:"
+                    - text: "Verify that the `SearchEngine` correctly interfaces with the `FileParser`. Test with various file formats (CSV, Excel) to ensure data flow consistency."
+                  - paragraph [ref=e1278]:
+                    - strong [ref=e1279]: "E2E Testing:"
+                    - text: Simulate a complete search flow. From the frontend input to the API response, ensure the user receives the expected results within a reasonable time (e.g., < 200ms).
+              - generic [ref=e1280]:
+                - heading "Optimization Tips" [level=4] [ref=e1281]
+                - list [ref=e1282]:
+                  - listitem [ref=e1283]: Use **Stemming/Lemmatization** to reduce words to their root form (e.g., "running" → "run").
+                  - listitem [ref=e1284]: Implement **Stopword Filtering** to remove common words (e.g., "the", "a") that don't add semantic value.
+                  - listitem [ref=e1285]: Cache the **Inverted Index** in memory to avoid repeated file I/O operations during search.
+          - generic [ref=e1286]:
+            - heading "Project Outcomes" [level=2] [ref=e1289]
+            - generic [ref=e1290]:
+              - generic [ref=e1291]:
+                - img [ref=e1292]
+                - generic [ref=e1295]: Python Ecosystem Setup - Set up a robust data science environment utilizing Flask, pandas, and NLTK for natural language processing.
+              - generic [ref=e1296]:
+                - img [ref=e1297]
+                - generic [ref=e1300]: Multi-format Parsing - Built an extensible file parser capable of ingesting and normalizing structured and unstructured data formats.
+              - generic [ref=e1301]:
+                - img [ref=e1302]
+                - generic [ref=e1305]: Algorithmic Ranking - Implemented state-of-the-art TF-IDF and BM25 ranking algorithms from theoretical foundations to production code.
+              - generic [ref=e1306]:
+                - img [ref=e1307]
+                - generic [ref=e1310]: Boolean Logic Search - Engineered exact-match boolean query parsing supporting complex AND, OR, and NOT logical operators.
+              - generic [ref=e1311]:
+                - img [ref=e1312]
+                - generic [ref=e1315]: REST API Architecture - Designed and exposed core search functionality through secure, scalable RESTful API endpoints using Flask.
+              - generic [ref=e1316]:
+                - img [ref=e1317]
+                - generic [ref=e1320]: Frontend Integration - Seamlessly connected a modern web interface to the backend system using asynchronous JavaScript.
+              - generic [ref=e1321]:
+                - img [ref=e1322]
+                - generic [ref=e1325]: Quality Assurance - Developed comprehensive regression testing suites to ensure consistent, high-quality search relevance.
+  - button "Ask Socratic Tutor" [ref=e1327] [cursor=pointer]:
+    - img [ref=e1328]
+  - alert [ref=e1331]
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from '@playwright/test';
+  2  | 
+  3  | test.describe('Learning Interactions', () => {
+  4  |   test.beforeEach(async ({ page }) => {
+  5  |     await page.goto('/');
+  6  |     await page.evaluate(() => localStorage.clear());
+  7  |     await page.reload();
+  8  |   });
+  9  | 
+  10 |   test('should allow saving reflections and artifacts', async ({ page }) => {
+  11 |     // 1. Submit pre-project quiz to get to step 1
+  12 |     const startProjectBtn = page.locator('button:has-text("Start Project")');
+  13 |     if (await startProjectBtn.isVisible()) {
+  14 |       await startProjectBtn.click();
+  15 |     }
+  16 |     
+  17 |     // Fill reflection
+  18 |     await page.locator('#step-1 textarea[placeholder*="reflection"]').fill('This is a test reflection');
+> 19 |     await page.locator('#step-1 button:has-text("Save Reflection")').click();
+     |                                                                      ^ Error: locator.click: Test timeout of 60000ms exceeded.
+  20 |     
+  21 |     // Wait for it to save
+  22 |     await expect(page.locator('#step-1 button:has-text("Saved")')).toBeVisible();
+  23 | 
+  24 |     // Fill artifact on step 2 (text artifact)
+  25 |     await page.locator('#step-2 textarea[placeholder*="explanation"]').fill('This is a test artifact');
+  26 |     await page.locator('#step-2 button:has-text("Save Answer")').click();
+  27 | 
+  28 |     // The button changes to "Update Answer"
+  29 |     await expect(page.locator('#step-2 button:has-text("Update Answer")')).toBeVisible();
+  30 |     
+  31 |     // Progress badge should update to "2/6" since both step 1 (reflection) and step 2 (artifact) have data
+  32 |     await expect(page.getByTestId('progress-badge')).toHaveText('2/6');
+  33 |   });
+  34 | 
+  35 |   test('should open AI assistant and show quick actions', async ({ page }) => {
+  36 |     // Click the sparkle button to open AI assistant
+  37 |     const aiButton = page.locator('button:has(.lucide-sparkles)').last();
+  38 |     await aiButton.click();
+  39 | 
+  40 |     // Verify AI tutor panel opens
+  41 |     await expect(page.locator('h3:has-text("Socratic Tutor")')).toBeVisible();
+  42 | 
+  43 |     // Verify quick action buttons exist
+  44 |     await expect(page.locator('button:has-text("Tell me about this project")')).toBeVisible();
+  45 |     await expect(page.locator('button:has-text("Quiz me")')).toBeVisible();
+  46 |     await expect(page.locator('button:has-text("My goal is...")')).toBeVisible();
+  47 |   });
+  48 | });
+  49 | 
+```

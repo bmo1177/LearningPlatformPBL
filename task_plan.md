@@ -4,7 +4,7 @@
 Elevate the IR Learning Platform to match (and exceed) the NextWork platform standard by implementing all 9 identified gaps from the platform audit, with a Gemini-powered AI assistant as the centerpiece feature.
 
 ## Gemini API Key
-`AIzaSyAM7ttzjfqbNInpvsmBRDUC4ryLUM1h2ZU`
+`AIzaSyCpQkHnaepEjQntUNh0TTQhuTVi_Rkobl0`
 
 ## Source Audit (from platform_audit.md)
 | Priority | Feature | Status |

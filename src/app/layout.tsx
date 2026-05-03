@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Open_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 import { AIAssistant } from "@/components/AIAssistant";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -30,9 +31,16 @@ export default function RootLayout({
       className={`${openSans.variable} ${poppins.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-sans bg-slate-50 text-slate-800">
-        {children}
-        <AIAssistant />
+      <body className="min-h-full flex flex-col font-sans bg-background text-foreground transition-colors duration-300">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          themes={['light', 'dark', 'theme-pinkish']}
+        >
+          {children}
+          <AIAssistant />
+        </ThemeProvider>
       </body>
     </html>
   );

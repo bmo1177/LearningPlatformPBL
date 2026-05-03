@@ -19,9 +19,9 @@ export default function Home() {
   const { isAssistantOpen } = useProgress();
 
   return (
-    <main className="flex min-h-screen bg-[#FAFAF8] overflow-hidden">
+    <main className="flex min-h-screen bg-background overflow-hidden">
       <Sidebar isOpen={isSidebarOpen} onToggle={() => setIsSidebarOpen(!isSidebarOpen)} />
-      <div className={`flex-1 ${isSidebarOpen ? 'ml-72' : 'ml-0'} transition-all duration-300 min-h-screen pb-20 overflow-y-auto ${isAssistantOpen ? 'pr-[400px]' : ''}`}>
+      <div className={`flex-1 ${isSidebarOpen ? 'md:ml-72' : 'ml-0'} transition-all duration-300 min-h-screen pb-20 overflow-y-auto ${isAssistantOpen ? 'xl:pr-[400px]' : ''}`}>
         <ProjectHeader />
         <div id="summary">
           <ProjectSummary />

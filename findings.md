@@ -38,7 +38,7 @@ Each step has: `id`, `title`, `theory`, `task`, `code_snippets[]`, `hint`, `arti
 Need to add: `reflection_prompt`, top-level `quiz[]`
 
 ### Gemini API Key
-`AIzaSyAM7ttzjfqbNInpvsmBRDUC4ryLUM1h2ZU`
+`AIzaSyCpQkHnaepEjQntUNh0TTQhuTVi_Rkobl0`
 - Store as `NEXT_PUBLIC_GEMINI_API_KEY` in `.env.local`
 - Use `@google/generative-ai` npm package
 - Model to use: `gemini-1.5-flash` (fast, free tier)

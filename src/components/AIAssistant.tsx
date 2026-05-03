@@ -83,35 +83,35 @@ Student says: ${userText}`;
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-50 font-sans">
+    <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 font-sans">
       {isAssistantOpen ? (
-        <div className="bg-white rounded-3xl w-96 h-[500px] flex flex-col shadow-2xl border border-slate-200/60 overflow-hidden animate-in slide-in-from-bottom-10 fade-in duration-300">
-          <div className="bg-slate-900 text-white p-4 flex items-center justify-between">
+        <div className="bg-card rounded-3xl w-[calc(100vw-2rem)] sm:w-96 h-[500px] max-h-[calc(100vh-6rem)] flex flex-col shadow-2xl border border-border/60 overflow-hidden animate-in slide-in-from-bottom-10 fade-in duration-300">
+          <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-400/30">
-                <Sparkles className="w-4 h-4 text-blue-400" />
+              <div className="w-8 h-8 rounded-full bg-background/20 flex items-center justify-center border border-primary-foreground/30">
+                <Sparkles className="w-4 h-4 text-primary-foreground/80" />
               </div>
               <div>
                 <h3 className="font-bold text-sm font-poppins">Socratic Tutor</h3>
-                <p className="text-[10px] text-blue-300 uppercase tracking-wider">Gemini Powered</p>
+                <p className="text-[10px] text-primary-foreground/70 uppercase tracking-wider">Gemini Powered</p>
               </div>
             </div>
             <button 
               onClick={() => setAssistantOpen(false)}
-              className="text-slate-400 hover:text-white transition-colors p-1"
+              className="text-primary-foreground/50 hover:text-primary-foreground transition-colors p-1"
               title="Close Socratic Tutor"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-secondary">
             {messages.map((msg, i) => (
               <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[80%] rounded-2xl p-3 text-sm leading-relaxed ${
                   msg.role === 'user' 
-                    ? 'bg-blue-600 text-white rounded-br-sm' 
-                    : 'bg-white border border-slate-200 text-slate-700 rounded-bl-sm shadow-sm'
+                    ? 'bg-primary text-primary-foreground rounded-br-sm' 
+                    : 'bg-card border border-border text-foreground rounded-bl-sm shadow-sm'
                 }`}>
                   {msg.content}
                 </div>
@@ -120,41 +120,41 @@ Student says: ${userText}`;
             
             {messages.length === 1 && (
               <div className="flex flex-col gap-2 mt-4 px-2">
-                <button onClick={() => setInput("Tell me about this project")} className="text-left text-xs bg-white border border-slate-200 p-2.5 rounded-xl text-slate-600 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-colors shadow-sm">
+                <button onClick={() => setInput("Tell me about this project")} className="text-left text-xs bg-card border border-border p-2.5 rounded-xl text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors shadow-sm">
                   "Tell me about this project"
                 </button>
-                <button onClick={() => setInput("Quiz me on my current step")} className="text-left text-xs bg-white border border-slate-200 p-2.5 rounded-xl text-slate-600 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-colors shadow-sm">
+                <button onClick={() => setInput("Quiz me on my current step")} className="text-left text-xs bg-card border border-border p-2.5 rounded-xl text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors shadow-sm">
                   "Quiz me"
                 </button>
-                <button onClick={() => setInput("My goal is...")} className="text-left text-xs bg-white border border-slate-200 p-2.5 rounded-xl text-slate-600 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200 transition-colors shadow-sm">
+                <button onClick={() => setInput("My goal is...")} className="text-left text-xs bg-card border border-border p-2.5 rounded-xl text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors shadow-sm">
                   "My goal is..."
                 </button>
               </div>
             )}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-white border border-slate-200 rounded-2xl rounded-bl-sm p-4 shadow-sm flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce"></div>
-                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.15s' }}></div>
-                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
+                <div className="bg-card border border-border rounded-2xl rounded-bl-sm p-4 shadow-sm flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce"></div>
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.15s' }}></div>
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
                 </div>
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSubmit} className="p-4 bg-white border-t border-slate-100 flex gap-2">
+          <form onSubmit={handleSubmit} className="p-4 bg-card border-t border-border flex gap-2">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask for guidance..."
-              className="flex-1 px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-sm"
+              className="flex-1 px-4 py-2 bg-secondary border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm text-foreground placeholder:text-muted-foreground"
             />
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="w-10 h-10 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 text-white rounded-xl flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="w-10 h-10 bg-primary hover:bg-primary/90 disabled:bg-muted disabled:text-muted-foreground text-primary-foreground rounded-xl flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               title="Send message"
             >
               <Send className="w-4 h-4" />
@@ -165,7 +165,7 @@ Student says: ${userText}`;
         <button
           onClick={() => setAssistantOpen(true)}
           title="Ask Socratic Tutor"
-          className="group flex items-center justify-center w-14 h-14 bg-slate-900 text-white rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2"
+          className="group flex items-center justify-center w-14 h-14 bg-primary text-primary-foreground rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
         >
           <Sparkles className="w-6 h-6 group-hover:scale-110 transition-transform" />
         </button>

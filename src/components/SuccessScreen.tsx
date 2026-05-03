@@ -38,21 +38,21 @@ export default function SuccessScreen() {
             <QuizPanel isPostQuiz={true} />
           </div>
           
-          <div className="max-w-4xl mx-auto p-12 pt-16 pb-32 border-t border-slate-100 flex flex-col items-center text-center w-full">
-            <div className="w-24 h-24 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 rotate-3 shadow-sm border border-blue-100">
-              <Award className="w-12 h-12 text-blue-600" />
+          <div className="max-w-4xl mx-auto p-6 md:p-12 pt-10 md:pt-16 pb-20 md:pb-32 border-t border-border flex flex-col items-center text-center w-full">
+            <div className="w-20 h-20 md:w-24 md:h-24 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 md:mb-8 rotate-3 shadow-sm border border-primary/20">
+              <Award className="w-10 h-10 md:w-12 md:h-12 text-primary" />
             </div>
             
-            <span className="text-blue-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-4">Mission Accomplished</span>
-          <h2 className="text-4xl font-black text-slate-900 mb-6 tracking-tight">Generate Final Dossier</h2>
-          <p className="text-lg text-slate-600 mb-12 max-w-2xl leading-relaxed">
+            <span className="text-primary font-bold uppercase tracking-[0.3em] text-[10px] mb-4">Mission Accomplished</span>
+          <h2 className="text-3xl md:text-4xl font-black text-foreground mb-6 tracking-tight">Generate Final Dossier</h2>
+          <p className="text-base md:text-lg text-muted-foreground mb-10 md:mb-12 max-w-2xl leading-relaxed">
             You have successfully completed the **Information Retrieval Engine** curriculum. Download your consolidated technical report containing all verified artifacts and implementation steps.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <button
               onClick={handleDownloadReport}
-              className="flex items-center gap-2 px-10 py-5 bg-blue-600 text-white font-black rounded-2xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-200/50 cursor-pointer uppercase tracking-widest text-xs"
+              className="flex items-center justify-center gap-2 px-6 sm:px-10 py-4 sm:py-5 bg-primary text-primary-foreground font-black rounded-2xl hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20 cursor-pointer uppercase tracking-widest text-xs"
             >
               <Download className="w-5 h-5" />
               Download Technical Report
@@ -60,39 +60,39 @@ export default function SuccessScreen() {
             
             <button
               onClick={resetProgress}
-              className="flex items-center gap-2 px-8 py-5 bg-white border border-slate-200 text-slate-600 font-bold rounded-2xl hover:bg-slate-50 transition-all cursor-pointer uppercase tracking-widest text-xs"
+              className="flex items-center justify-center gap-2 px-6 sm:px-8 py-4 sm:py-5 bg-card border border-border text-muted-foreground font-bold rounded-2xl hover:bg-secondary hover:text-foreground transition-all cursor-pointer uppercase tracking-widest text-xs"
             >
               <RefreshCw className="w-4 h-4" />
               Reset Workspace
             </button>
           </div>
 
-          <div className="mt-16 w-full max-w-2xl bg-slate-50 p-8 rounded-3xl border border-slate-200 text-left">
-            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-2">Resource Cleanup</h3>
-            <p className="text-slate-500 text-sm mb-6">Manage the resources provisioned during this project.</p>
+          <div className="mt-12 md:mt-16 w-full max-w-2xl bg-secondary p-6 md:p-8 rounded-3xl border border-border text-left">
+            <h3 className="text-sm font-bold text-foreground uppercase tracking-widest mb-2">Resource Cleanup</h3>
+            <p className="text-muted-foreground text-sm mb-6">Manage the resources provisioned during this project.</p>
             
             <div className="space-y-3">
-              <label className="flex items-start gap-4 p-4 bg-white border border-slate-200 rounded-xl cursor-pointer hover:border-blue-400 transition-colors">
-                <input type="radio" name="cleanup" className="mt-1 text-blue-600 focus:ring-blue-500 cursor-pointer" defaultChecked />
+              <label className="flex items-start gap-4 p-4 bg-card border border-border rounded-xl cursor-pointer hover:border-primary transition-colors group">
+                <input type="radio" name="cleanup" className="mt-1 text-primary focus:ring-primary cursor-pointer" defaultChecked />
                 <div>
-                  <div className="font-bold text-slate-900 text-sm">Keep All Resources</div>
-                  <div className="text-slate-500 text-xs mt-1">Retain the vector database and application code for future reference.</div>
+                  <div className="font-bold text-foreground text-sm">Keep All Resources</div>
+                  <div className="text-muted-foreground group-hover:text-foreground text-xs mt-1 transition-colors">Retain the vector database and application code for future reference.</div>
                 </div>
               </label>
               
-              <label className="flex items-start gap-4 p-4 bg-white border border-slate-200 rounded-xl cursor-pointer hover:border-blue-400 transition-colors">
-                <input type="radio" name="cleanup" className="mt-1 text-blue-600 focus:ring-blue-500 cursor-pointer" />
+              <label className="flex items-start gap-4 p-4 bg-card border border-border rounded-xl cursor-pointer hover:border-primary transition-colors group">
+                <input type="radio" name="cleanup" className="mt-1 text-primary focus:ring-primary cursor-pointer" />
                 <div>
-                  <div className="font-bold text-slate-900 text-sm">Delete Vectors Only</div>
-                  <div className="text-slate-500 text-xs mt-1">Destroy the Qdrant collections to save cloud costs, but keep the local code.</div>
+                  <div className="font-bold text-foreground text-sm">Delete Vectors Only</div>
+                  <div className="text-muted-foreground group-hover:text-foreground text-xs mt-1 transition-colors">Destroy the Qdrant collections to save cloud costs, but keep the local code.</div>
                 </div>
               </label>
               
-              <label className="flex items-start gap-4 p-4 bg-white border border-slate-200 rounded-xl cursor-pointer hover:border-red-400 transition-colors">
-                <input type="radio" name="cleanup" className="mt-1 text-red-600 focus:ring-red-500 cursor-pointer" />
+              <label className="flex items-start gap-4 p-4 bg-card border border-border rounded-xl cursor-pointer hover:border-destructive transition-colors group">
+                <input type="radio" name="cleanup" className="mt-1 text-destructive focus:ring-destructive cursor-pointer" />
                 <div>
-                  <div className="font-bold text-slate-900 text-sm">Delete Everything</div>
-                  <div className="text-slate-500 text-xs mt-1">Completely tear down the infrastructure and remove the project files.</div>
+                  <div className="font-bold text-foreground text-sm">Delete Everything</div>
+                  <div className="text-muted-foreground group-hover:text-foreground text-xs mt-1 transition-colors">Completely tear down the infrastructure and remove the project files.</div>
                 </div>
               </label>
             </div>
