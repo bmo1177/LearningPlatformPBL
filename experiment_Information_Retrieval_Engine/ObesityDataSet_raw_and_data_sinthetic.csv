@@ -1,0 +1,16 @@
+id,gender,age,height,weight,family_history_with_overweight,calories_consumption,vegetable_consumption,meal_count,snack_count,smoking,water_consumption,calorie_monitor,physical_activity,screen_time,alcohol_consumption,transportation,obesity_level
+1,Male,21,1.70,90,yes,3,2,3,2,no,2,no,0,2,no,walking,Obesity_Type_I
+2,Female,25,1.60,65,yes,2,3,3,1,no,3,no,1,1,no,public_transport,Normal_Weight
+3,Male,30,1.75,100,yes,4,1,4,3,no,1,yes,0,3,yes,bike,Sportive
+4,Female,22,1.55,58,no,2,2,2,0,no,2,no,2,1,no,walking,Insufficient_Weight
+5,Male,45,1.80,120,yes,5,1,5,4,yes,1,yes,0,4,yes,car,Obesity_Type_II
+6,Female,35,1.62,70,yes,3,2,3,2,no,3,no,1,2,no,public_transport,Overweight_Type_I
+7,Male,28,1.73,85,yes,3,2,3,1,no,2,no,2,1,no,walking,Normal_Weight
+8,Female,19,1.58,52,no,2,3,2,1,no,4,no,3,0,no,walking,Insufficient_Weight
+9,Male,40,1.78,110,yes,4,1,4,3,yes,1,yes,0,3,yes,car,Obesity_Type_III
+10,Female,33,1.64,75,yes,3,2,3,2,no,2,no,1,2,no,public_transport,Overweight_Type_II
+11,Male,26,1.72,82,no,2,3,3,1,no,3,no,2,1,no,walking,Normal_Weight
+12,Female,29,1.57,55,no,2,2,2,1,no,3,no,2,1,no,bike,Sportive
+13,Male,50,1.76,115,yes,5,1,5,4,yes,1,yes,0,4,yes,car,Obesity_Type_II
+14,Female,24,1.61,63,yes,3,2,3,1,no,2,no,1,2,no,public_transport,Overweight_Type_I
+15,Male,22,1.74,78,no,2,2,2,1,no,3,no,3,0,no,walking,Normal_Weight
