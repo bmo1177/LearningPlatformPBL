@@ -1,12 +1,14 @@
-import { CheckCircle, Circle, Zap, Target, GraduationCap, Download, Users, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import { CheckCircle, Circle, Zap, Target, GraduationCap, Download, Users, PanelLeftClose, PanelLeftOpen, BookOpen } from 'lucide-react';
 import courseData from '@/data/course-ir.json';
 import { useProgress } from '@/hooks/useProgress';
 
-export default function Sidebar({ isOpen, onToggle }: { isOpen: boolean, onToggle: () => void }) {
+export default function Sidebar({ isOpen, onToggle, currentStep }: { isOpen: boolean, onToggle: () => void, currentStep: number | null }) {
   const { artifacts, reflections } = useProgress();
 
   const completedCount = courseData.steps.filter(step => artifacts[step.id] || reflections[step.id]).length;
   const totalCount = courseData.steps.length;
+
+  const currentStepData = currentStep ? courseData.steps.find(s => s.id === currentStep) : null;
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -144,13 +146,27 @@ export default function Sidebar({ isOpen, onToggle }: { isOpen: boolean, onToggl
       </aside>
       
       {!isOpen && (
-        <button 
-          onClick={onToggle}
-          className="fixed left-4 top-4 z-30 p-3 bg-background border border-border rounded-xl shadow-lg hover:shadow-xl transition-all text-muted-foreground cursor-pointer group animate-in fade-in slide-in-from-left-4 md:hidden"
-          title="Show Sidebar"
-        >
-          <PanelLeftOpen className="w-5 h-5 group-hover:text-primary transition-colors" />
-        </button>
+        <div className="fixed left-4 top-4 z-30 flex flex-col gap-2">
+          <button
+            onClick={onToggle}
+            className="p-3 bg-background border border-border rounded-xl shadow-lg hover:shadow-xl transition-all text-muted-foreground cursor-pointer group animate-in fade-in slide-in-from-left-4"
+            title="Show Sidebar"
+          >
+            <PanelLeftOpen className="w-5 h-5 group-hover:text-primary transition-colors" />
+          </button>
+          {currentStepData && (
+            <button
+              onClick={onToggle}
+              className="flex items-center gap-2 px-3 py-2 bg-primary/10 border border-primary/20 rounded-xl shadow-lg hover:shadow-xl transition-all cursor-pointer group animate-in fade-in slide-in-from-left-4"
+              title={`Currently viewing: Step ${currentStep}`}
+            >
+              <BookOpen className="w-4 h-4 text-primary shrink-0" />
+              <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                Step {currentStep}: {currentStepData.title}
+              </span>
+            </button>
+          )}
+        </div>
       )}
     </>
   );

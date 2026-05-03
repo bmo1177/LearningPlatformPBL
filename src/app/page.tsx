@@ -12,15 +12,53 @@ import { GuidanceToggle } from '@/components/GuidanceToggle';
 import courseData from '@/data/course-ir.json';
 import { useProgress } from '@/hooks/useProgress';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [currentStep, setCurrentStep] = useState<number | null>(null);
   const { isAssistantOpen } = useProgress();
+  const stepRefs = useRef<Map<number, HTMLElement>>(new Map());
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const stepId = Number(entry.target.getAttribute('data-step-id'));
+          if (stepId) {
+            setCurrentStep(stepId);
+          }
+        }
+      });
+    }, observerOptions);
+
+    courseData.steps.forEach((step) => {
+      const element = document.getElementById(`step-${step.id}`);
+      if (element) {
+        element.setAttribute('data-step-id', String(step.id));
+        observer.observe(element);
+        stepRefs.current.set(step.id, element);
+      }
+    });
+
+    observers.push(observer);
+
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
+  }, []);
 
   return (
     <main className="flex min-h-screen bg-background overflow-hidden">
-      <Sidebar isOpen={isSidebarOpen} onToggle={() => setIsSidebarOpen(!isSidebarOpen)} />
+      <Sidebar isOpen={isSidebarOpen} onToggle={() => setIsSidebarOpen(!isSidebarOpen)} currentStep={currentStep} />
       <div className={`flex-1 ${isSidebarOpen ? 'md:ml-72' : 'ml-0'} transition-all duration-300 min-h-screen pb-20 overflow-y-auto ${isAssistantOpen ? 'xl:pr-[400px]' : ''}`}>
         <ProjectHeader />
         <div id="summary">
