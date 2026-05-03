@@ -4,7 +4,7 @@ import { Download, RefreshCw, Award, CheckCircle2 } from 'lucide-react';
 import { QuizPanel } from '@/components/QuizPanel';
 
 export default function SuccessScreen() {
-  const { artifacts, currentStep, resetProgress } = useProgress();
+  const { artifacts, reflections, currentStep, resetProgress } = useProgress();
   const isFinished = currentStep >= courseData.steps.length;
 
   const handleDownloadReport = async () => {
@@ -125,9 +125,9 @@ export default function SuccessScreen() {
                 <h3 className="text-2xl font-black text-slate-900 tracking-tight">{step.title}</h3>
               </div>
               
-              <div className="bg-slate-50 p-6 rounded-2xl mb-6 border border-slate-100">
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Requirement Summary</p>
-                <p className="text-slate-800 leading-relaxed text-sm">{step.task}</p>
+              <div className="bg-slate-50 p-4 rounded-xl mb-4 border border-slate-100 opacity-60">
+                <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mb-1">Requirement Context</p>
+                <p className="text-slate-600 leading-relaxed text-[11px]">{step.task}</p>
               </div>
               
               <div className="mt-6">
@@ -141,13 +141,22 @@ export default function SuccessScreen() {
                     <img src={artifacts[step.id]} alt={`Step ${step.id} artifact`} className="w-full h-auto" />
                   </div>
                 ) : artifacts[step.id] ? (
-                  <div className="p-6 bg-slate-900 text-slate-300 border border-slate-800 rounded-2xl font-mono text-xs leading-relaxed">
+                  <div className="p-6 bg-slate-900 text-slate-300 border border-slate-800 rounded-2xl font-mono text-xs leading-relaxed whitespace-pre-wrap break-words">
                     {artifacts[step.id]}
                   </div>
                 ) : (
                   <p className="text-slate-400 italic text-sm p-6 bg-slate-50 rounded-2xl border border-dashed border-slate-200 text-center">Data capture was not required or omitted for this phase.</p>
                 )}
               </div>
+
+              {reflections[step.id] && (
+                <div className="mt-8 p-6 bg-slate-50 border-l-4 border-blue-600 rounded-r-2xl">
+                  <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-2">Learner Reflection</p>
+                  <p className="text-slate-800 italic text-sm leading-relaxed whitespace-pre-wrap">
+                    "{reflections[step.id]}"
+                  </p>
+                </div>
+              )}
             </div>
           ))}
         </div>
