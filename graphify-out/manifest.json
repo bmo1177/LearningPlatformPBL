@@ -1,0 +1,170 @@
+{
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/next.config.ts": {
+    "mtime": 1777670642.756736,
+    "hash": "9b77af189a21a7a64e4bd7a426f64176"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/tailwind.config.ts": {
+    "mtime": 1777715710.644329,
+    "hash": "61c3dcd263fd366fc614c03ec5737cf9"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/eslint.config.mjs": {
+    "mtime": 1777670642.756736,
+    "hash": "dfa1f5f6a7037bf39dc510f30b180002"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/playwright.config.ts": {
+    "mtime": 1777819963.3423288,
+    "hash": "274d9e418a5d42a122ac1650c8ba6a19"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/postcss.config.mjs": {
+    "mtime": 1777685114.9404974,
+    "hash": "d3fd1d29b05a09ff76b595a70e1e7d50"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/next-env.d.ts": {
+    "mtime": 1777833112.855673,
+    "hash": "d0f8375ae1199dc7acd3977fc33b78b8"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/hooks/useProgress.ts": {
+    "mtime": 1777764183.5141115,
+    "hash": "452f306c03a458c5443b90a191890d95"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/ArtifactCapture.tsx": {
+    "mtime": 1777832657.0220616,
+    "hash": "b410bdf140144770832db48d0f879671"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/ThemeProvider.tsx": {
+    "mtime": 1777833010.3210094,
+    "hash": "6f92635d9256df3c06f3506eb409c2bb"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/DocPanel.tsx": {
+    "mtime": 1777834151.4893918,
+    "hash": "3b36ac2c0201d43742fdd0f5e3a5d989"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/LearnedSection.tsx": {
+    "mtime": 1777832795.4150443,
+    "hash": "61f866e4b4290861179c73b47f48f7c9"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/CodeBlock.tsx": {
+    "mtime": 1777832896.6216204,
+    "hash": "2d3dee007c99a0aa5e322e8e4cfd643a"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/QuizPanel.tsx": {
+    "mtime": 1777832894.6134899,
+    "hash": "d5d2a923c59f30d6148e3713e54d166e"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/MainStage.tsx": {
+    "mtime": 1777832449.276883,
+    "hash": "73dcb176184c741f6384d652c751f171"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/ReflectionBox.tsx": {
+    "mtime": 1777832886.040933,
+    "hash": "b4cf50d12051da043536c901d26f9aa1"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/ProjectSummary.tsx": {
+    "mtime": 1777832408.162516,
+    "hash": "0a0654685108cb17ddecadc2518bdbc6"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/ProjectHeader.tsx": {
+    "mtime": 1777832374.812791,
+    "hash": "509dcb78eb580c23a3591dad99626c57"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/SuccessScreen.tsx": {
+    "mtime": 1777834045.5666668,
+    "hash": "b908521d7b22faa423130129cc841fab"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/ThemeToggle.tsx": {
+    "mtime": 1777831400.439717,
+    "hash": "c7625b715b26891af5e3372435c49a7d"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/Sidebar.tsx": {
+    "mtime": 1777832331.579038,
+    "hash": "b9b0c1125768f60d6bae32eb8f44d098"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/AIAssistant.tsx": {
+    "mtime": 1777832946.6448712,
+    "hash": "004a4b96bf8706cbd9ac66dbf77a2102"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/components/GuidanceToggle.tsx": {
+    "mtime": 1777832563.808046,
+    "hash": "c41ae475b97092af28b9b4c5b047c979"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/app/page.tsx": {
+    "mtime": 1777831537.2801764,
+    "hash": "643efeb0b314f2473f141209eee3bc26"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/src/app/layout.tsx": {
+    "mtime": 1777831414.4397657,
+    "hash": "f9c2e6323fffe7b64fa3970bb681ac01"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/e2e/success-flow.spec.ts": {
+    "mtime": 1777718969.7465277,
+    "hash": "0cfffb6732073632db9df606c47c815f"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/e2e/platform-navigation.spec.ts": {
+    "mtime": 1777726537.0363953,
+    "hash": "6377df9998fd4d27966c21c55c140b02"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/e2e/learning-interactions.spec.ts": {
+    "mtime": 1777738593.26693,
+    "hash": "2fe9219414ce2c24d988dd15f75f96ac"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/e2e/guidance-modes.spec.ts": {
+    "mtime": 1777718946.5980055,
+    "hash": "972729a7f8c3416213c36e3fbebdb83a"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/findings.md": {
+    "mtime": 1777820255.5670717,
+    "hash": "5d3c3a3f7a864cc6c10931524a125c9a"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/progress.md": {
+    "mtime": 1777686691.185047,
+    "hash": "7c66a70a425029284d4473d6b3cf792a"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/CLAUDE.md": {
+    "mtime": 1777670706.1450253,
+    "hash": "5c27369b226fcf2be8a6cfe52224e767"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/README.md": {
+    "mtime": 1777819513.3932316,
+    "hash": "34f9da5678a468b3807b347161a12089"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/task_plan.md": {
+    "mtime": 1777820253.5510666,
+    "hash": "b3ac8c947d48cc03f6db7002d82c561d"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/AGENTS.md": {
+    "mtime": 1777670706.1450253,
+    "hash": "9e09241799026ac05be315a2f0b50055"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/test-results/learning-interactions-Lear-4fae6-g-reflections-and-artifacts-webkit/error-context.md": {
+    "mtime": 1777829636.0373223,
+    "hash": "423a096665fc99f9c94b2416d6e7b64d"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/playwright-report/index.html": {
+    "mtime": 1777829636.1253223,
+    "hash": "e10c9c8d72270f219baf3475a96e1df5"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/playwright-report/data/57874ae4726346c84699cd39753d05d1b01697d2.md": {
+    "mtime": 1777829636.1133223,
+    "hash": "423a096665fc99f9c94b2416d6e7b64d"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/public/next.svg": {
+    "mtime": 1777670642.756736,
+    "hash": "8e061864f388b47f33a1c3780831193e"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/public/globe.svg": {
+    "mtime": 1777670642.756736,
+    "hash": "2aaafa6a49b6563925fe440891e32717"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/public/window.svg": {
+    "mtime": 1777670642.756736,
+    "hash": "a2760511c65806022ad20adf74370ff3"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/public/file.svg": {
+    "mtime": 1777670642.748736,
+    "hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
+  },
+  "/home/dev-lab/Documents/GitHub/LearningPlatform/public/vercel.svg": {
+    "mtime": 1777670642.756736,
+    "hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
+  }
+}
