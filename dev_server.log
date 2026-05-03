@@ -1,0 +1,41 @@
+
+> app-temp@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.17:3000
+- Environments: .env.local
+✓ Ready in 289ms
+
+ GET / 200 in 1372ms (next.js: 345ms, application-code: 1028ms)
+ GET / 200 in 248ms (next.js: 7ms, application-code: 241ms)
+✓ Compiled in 104ms
+✓ Compiled in 103ms
+✓ Compiled in 93ms
+[browser] Uncaught ReferenceError: useProgress is not defined
+    at Home (src/app/page.tsx:18:31)
+    at Set.forEach (<anonymous>)
+  16 | export default function Home() {
+  17 |   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+> 18 |   const { isAssistantOpen } = useProgress();
+     |                               ^
+  19 |
+  20 |   return (
+  21 |     <main className="flex min-h-screen bg-[#FAFAF8] overflow-hidden">
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Compiled in 79ms
+ GET / 200 in 240ms (next.js: 6ms, application-code: 234ms)
+✓ Compiled in 99ms
+✓ Compiled in 65ms
+ GET / 200 in 241ms (next.js: 11ms, application-code: 231ms)
+[browser] Error: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent: [404 ] models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+    at async handleSubmit (src/components/AIAssistant.tsx:69:22)
+  67 | Student says: ${userText}`;
+  68 |
+> 69 |       const result = await model.generateContent(prompt);
+     |                      ^
+  70 |       const response = await result.response;
+  71 |       const text = response.text();
+  72 | (src/components/AIAssistant.tsx:75:15)
+[?25h

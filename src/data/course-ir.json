@@ -1,0 +1,266 @@
+{
+  "title": "Information Retrieval Engine",
+  "description": "Build a modern, production-ready Information Retrieval system using Python and Flask.",
+  "difficulty": "Intermediate",
+  "time": "3\u20134 Hours",
+  "author": "Belalia Mohamed Oussama",
+  "summary": "Welcome to building your own **Information Retrieval Engine** with Python and Flask! \ud83d\ude80\n\nEver wondered how search engines find exactly what you need in millions of documents? Whether it's Google ranking web pages or Elasticsearch powering e-commerce search, they all rely on core IR algorithms like **TF-IDF** and **BM25**.\n\nIn this project, you'll build your own powerful search system from scratch. You'll parse real datasets, construct an **Inverted Index**, implement mathematical ranking models, expose everything through a **Flask REST API**, and wire up a clean web frontend to interact with it all.",
+  "objectives": [
+    {
+      "emoji": "\ud83d\udc0d",
+      "text": "Set up a Python environment and install data science dependencies."
+    },
+    {
+      "emoji": "\ud83d\udcc4",
+      "text": "Build a multi-format file parser to ingest CSV, PDF, DOCX, and more."
+    },
+    {
+      "emoji": "\ud83e\uddee",
+      "text": "Implement TF-IDF, BM25, and Boolean search from scratch."
+    },
+    {
+      "emoji": "\ud83c\udf10",
+      "text": "Create RESTful API endpoints with Flask for search and statistics."
+    },
+    {
+      "emoji": "\ud83d\udda5\ufe0f",
+      "text": "Build a responsive web frontend to interact with your engine."
+    }
+  ],
+  "key_concepts": [
+    "Inverted Index",
+    "TF-IDF (Term Frequency\u2013Inverse Document Frequency)",
+    "Okapi BM25",
+    "Boolean Search (AND, OR, NOT)",
+    "Cosine Similarity",
+    "Stopword Filtering & Lemmatization",
+    "Flask RESTful API"
+  ],
+  "architecture_description": "CSV/PDF/DOCX \u2192 FileParser \u2192 SearchEngine (Inverted Index) \u2192 BM25 / TF-IDF / Boolean Models \u2192 Flask API (app.py) \u2192 Web Frontend (HTML/CSS/JS)",
+  "steps": [
+    {
+      "id": 1,
+      "title": "Environment Setup & Bootstrapping",
+      "theory": "Before writing the core logic, we need to set up the development environment. This involves configuring a virtual environment, defining dependencies in `requirements.txt`, and bootstrapping the entry point `app.py`. A structured environment ensures reproducibility and prevents version conflicts when working with data science libraries like pandas, numpy, and nltk.",
+      "task": "Create your project folder, set up a Python virtual environment, create `requirements.txt` with the dependencies listed below, install them, and write a minimal `app.py` that spins up a Flask development server.",
+      "code_snippets": [
+        {
+          "filename": "requirements.txt",
+          "language": "text",
+          "code": "flask==3.0.0\nflask-cors==4.0.0\npandas==2.1.4\nnumpy==1.26.2\nnltk==3.8.1\nopenpyxl==3.1.2\npython-docx==1.1.0\npdfplumber==0.10.3\npython-pptx==0.6.23"
+        },
+        {
+          "filename": "app.py (minimal)",
+          "language": "python",
+          "code": "from flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route('/')\ndef index():\n    return jsonify({'status': 'IR Engine is running!'})\n\nif __name__ == '__main__':\n    app.run(host='0.0.0.0', port=5000, debug=True)"
+        }
+      ],
+      "hint": "Run `python -m venv venv && source venv/bin/activate && pip install -r requirements.txt` to set up. Then `python app.py` to test.",
+      "artifact_type": "image",
+      "artifact_prompt": "Upload a screenshot of your terminal showing the Flask server running locally on port 5000.",
+      "reflection_prompt": "What challenges did you face setting up the environment, and why is an isolated virtual environment important for this project?"
+    },
+    {
+      "id": 2,
+      "title": "Data Parsing Module",
+      "theory": "An IR engine is useless without data. The parsing module is responsible for reading datasets (like CSVs), cleaning the data, and standardizing it for the search engine. Robust parsing involves handling missing values gracefully, detecting numeric vs. categorical columns automatically, and supporting multiple file formats (CSV, Excel, PDF, DOCX, PPTX, Markdown).",
+      "task": "Implement `file_parser.py`. Create a `FileParser` class with a static `parse()` method that reads a CSV file and returns a clean list of dictionaries. Use the code below as your starting point, then try adding Excel support with pandas.",
+      "code_snippets": [
+        {
+          "filename": "file_parser.py (core)",
+          "language": "python",
+          "code": "import csv\nimport io\nfrom pathlib import Path\nfrom typing import Dict, List\n\nclass FileParser:\n    SUPPORTED_EXTENSIONS = {'.csv', '.xlsx', '.xls', '.txt'}\n\n    @classmethod\n    def is_supported(cls, filename: str) -> bool:\n        return Path(filename).suffix.lower() in cls.SUPPORTED_EXTENSIONS\n\n    @classmethod\n    def parse(cls, file_stream: io.BytesIO, filename: str) -> List[Dict[str, str]]:\n        ext = Path(filename).suffix.lower()\n        if ext == '.csv':\n            return cls._parse_csv(file_stream)\n        raise ValueError(f'Unsupported format: {ext}')\n\n    @staticmethod\n    def _parse_csv(file_stream: io.BytesIO) -> List[Dict[str, str]]:\n        content = file_stream.read().decode('utf-8')\n        reader = csv.DictReader(io.StringIO(content))\n        return [dict(row) for row in reader]"
+        }
+      ],
+      "hint": "Test your parser by running: `python -c \"from file_parser import FileParser; import io; f=open('ObesityDataSet_raw_and_data_sinthetic.csv','rb'); print(len(FileParser.parse(io.BytesIO(f.read()), 'data.csv')), 'records parsed')\"` ",
+      "artifact_type": "text",
+      "artifact_prompt": "Paste the output of running your parser on the sample dataset, or describe how you handled file format detection.",
+      "reflection_prompt": "How does the FileParser architecture make it easier to add new file formats in the future?"
+    },
+    {
+      "id": 3,
+      "title": "Core Search Engine & Mathematics",
+      "theory": "The heart of the IR system. You need to build an **Inverted Index** \u2014 a data structure that maps every term to the documents it appears in. Then, implement ranking algorithms:\n\n**TF-IDF:** Measures term importance. TF (Term Frequency) captures how often a term appears in a document; IDF (Inverse Document Frequency) penalizes terms that appear in many documents.\n\n**BM25 (Okapi):** The modern industry standard (used by Elasticsearch/Lucene). It adds document length normalization and term saturation to TF-IDF, producing more accurate relevancy scores.\n\n**Boolean Model:** Supports AND, OR, NOT operators for precise filtering queries.",
+      "task": "Develop `search_engine.py`. Start with the `InvertedIndex` class, then build the `BM25Model`. Use the code snippets below as your foundation. Focus on getting the BM25 formula correct first, then add TF-IDF and Boolean support.",
+      "code_snippets": [
+        {
+          "filename": "search_engine.py \u2014 InvertedIndex",
+          "language": "python",
+          "code": "from collections import defaultdict\nimport math\n\nclass InvertedIndex:\n    def __init__(self):\n        self.index = defaultdict(lambda: defaultdict(list))\n        self.doc_count = 0\n        self.documents = {}\n        self.doc_lengths = {}\n        self.avg_doc_length = 0.0\n        self.term_doc_freq = defaultdict(int)\n\n    def build_from_records(self, records):\n        for row in records:\n            self.doc_count += 1\n            doc_id = self.doc_count\n            self.documents[doc_id] = row\n            doc_terms = []\n            for field, value in row.items():\n                tokens = str(value).lower().split()\n                doc_terms.extend(tokens)\n                for pos, term in enumerate(tokens):\n                    self.index[term][field].append(\n                        {'doc_id': doc_id, 'position': pos}\n                    )\n            self.doc_lengths[doc_id] = len(doc_terms)\n        if self.doc_count > 0:\n            self.avg_doc_length = sum(self.doc_lengths.values()) / self.doc_count"
+        },
+        {
+          "filename": "search_engine.py \u2014 BM25",
+          "language": "python",
+          "code": "class BM25Model:\n    def __init__(self, index, k1=1.5, b=0.75):\n        self.index = index\n        self.k1 = k1\n        self.b = b\n\n    def calculate_bm25(self, term, doc_id):\n        tf = self.index.get_term_frequency(term, doc_id)\n        if tf == 0: return 0.0\n        df = self.index.term_doc_freq.get(term, 0)\n        N = self.index.doc_count\n        idf = math.log((N - df + 0.5) / (df + 0.5) + 1.0)\n        doc_len = self.index.doc_lengths.get(doc_id, 0)\n        avg_len = self.index.avg_doc_length or 1.0\n        denom = tf + self.k1 * (1 - self.b + self.b * (doc_len / avg_len))\n        return idf * (tf * (self.k1 + 1) / denom)\n\n    def search(self, query, top_k=10):\n        terms = query.lower().split()\n        scores = defaultdict(float)\n        for term in terms:\n            if term in self.index.index:\n                for doc_id in self.index.get_postings(term):\n                    scores[doc_id] += self.calculate_bm25(term, doc_id)\n        return sorted(scores.items(), key=lambda x: x[1], reverse=True)[:top_k]"
+        }
+      ],
+      "hint": "The BM25 formula is: score(D,Q) = \u03a3 IDF(qi) \u00b7 (f(qi,D) \u00b7 (k1+1)) / (f(qi,D) + k1 \u00b7 (1-b+b \u00b7 |D|/avgdl)). Try searching 'obesity' and verify you get ranked results.",
+      "artifact_type": "text",
+      "artifact_prompt": "Explain briefly how your BM25 ranking algorithm works, or paste sample output from a test query.",
+      "reflection_prompt": "Explain the difference between TF-IDF and BM25 in your own words. Why might BM25 perform better?"
+    },
+    {
+      "id": 4,
+      "title": "Flask API Endpoints",
+      "theory": "With the engine built, it needs to be accessible over the web. RESTful API endpoints act as the bridge between the frontend UI and the backend Python logic. Each endpoint handles JSON payloads, executes the search on the instantiated engine, and returns structured JSON responses containing ranking scores and document metadata. You should also add safety features like input sanitization and rate limiting.",
+      "task": "Expand `app.py` to initialize the SearchEngine and add the API routes shown below. Test each endpoint with cURL or Postman to verify they return valid JSON responses.",
+      "code_snippets": [
+        {
+          "filename": "app.py \u2014 Search Endpoint",
+          "language": "python",
+          "code": "from search_engine import SearchEngine\nimport time\n\n# Initialize globally\nsearch_engine = SearchEngine(csv_path='ObesityDataSet_raw_and_data_sinthetic.csv')\n\n@app.route('/api/search', methods=['POST'])\ndef api_search():\n    data = request.get_json() or {}\n    query = data.get('query', '')\n    model = data.get('model', 'bm25')\n    top_k = min(data.get('top_k', 10), 500)\n\n    start = time.time()\n    results = search_engine.search(query, model=model, top_k=top_k)\n    elapsed = (time.time() - start) * 1000\n\n    return jsonify({\n        'query': query,\n        'model': model,\n        'results': results,\n        'total_results': len(results),\n        'search_time_ms': round(elapsed, 2)\n    })"
+        },
+        {
+          "filename": "app.py \u2014 Statistics & Suggestions",
+          "language": "python",
+          "code": "@app.route('/api/statistics', methods=['GET'])\ndef api_statistics():\n    return jsonify({\n        'total_documents': search_engine.index.doc_count,\n        'unique_terms': len(search_engine.index.index),\n        'average_document_length': round(search_engine.index.avg_doc_length, 2)\n    })\n\n@app.route('/api/suggestions', methods=['GET'])\ndef api_suggestions():\n    suggestions = search_engine.get_suggested_queries(count=10)\n    return jsonify(suggestions)"
+        },
+        {
+          "filename": "Terminal \u2014 Test with cURL",
+          "language": "bash",
+          "code": "# Test the search endpoint\ncurl -X POST http://localhost:5000/api/search \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"query\": \"obesity\", \"model\": \"bm25\", \"top_k\": 5}'\n\n# Test statistics\ncurl http://localhost:5000/api/statistics"
+        }
+      ],
+      "hint": "Make sure to call `initialize_search_engine()` in `if __name__ == '__main__':` before `app.run()`. You can test with: curl -X POST localhost:5000/api/search -H 'Content-Type: application/json' -d '{\"query\":\"obesity\"}'",
+      "artifact_type": "image",
+      "artifact_prompt": "Upload a screenshot of a successful API response from `/api/search` (using cURL, Postman, or your browser).",
+      "reflection_prompt": "Why did we use a POST request for the search endpoint instead of a GET request?"
+    },
+    {
+      "id": 5,
+      "title": "Frontend Integration",
+      "theory": "A powerful backend is best showcased with an intuitive frontend. Flask serves HTML templates using Jinja2 and static assets (CSS/JS). Your frontend will call the `/api/search` endpoint via JavaScript `fetch()`, rendering results dynamically without full page reloads. This gives users a smooth, modern search experience.",
+      "task": "Set up your `templates/` and `static/` directories. Create a base template, a search page that calls your API via fetch(), and display ranked results. Use the structure below as a starting point.",
+      "code_snippets": [
+        {
+          "filename": "templates/index.html",
+          "language": "html",
+          "code": "<!DOCTYPE html>\n<html>\n<head>\n    <title>IR Search Engine</title>\n    <link rel=\"stylesheet\" href=\"/static/css/style.css\">\n</head>\n<body>\n    <h1>\ud83d\udd0d Information Retrieval Engine</h1>\n    <input type=\"text\" id=\"query\" placeholder=\"Search...\">\n    <select id=\"model\">\n        <option value=\"bm25\">BM25</option>\n        <option value=\"tfidf\">TF-IDF</option>\n        <option value=\"boolean\">Boolean</option>\n    </select>\n    <button onclick=\"doSearch()\">Search</button>\n    <div id=\"results\"></div>\n\n    <script>\n    async function doSearch() {\n        const query = document.getElementById('query').value;\n        const model = document.getElementById('model').value;\n        const res = await fetch('/api/search', {\n            method: 'POST',\n            headers: {'Content-Type': 'application/json'},\n            body: JSON.stringify({query, model, top_k: 10})\n        });\n        const data = await res.json();\n        const div = document.getElementById('results');\n        div.innerHTML = data.results.map((r, i) =>\n            `<div class=\"result\">\n                <strong>#${i+1}</strong> (score: ${r.score.toFixed(4)})\n                <pre>${JSON.stringify(r.document, null, 2)}</pre>\n            </div>`\n        ).join('');\n    }\n    </script>\n</body>\n</html>"
+        },
+        {
+          "filename": "app.py \u2014 Serve the template",
+          "language": "python",
+          "code": "from flask import render_template\n\n@app.route('/')\ndef index_route():\n    return render_template('index.html')"
+        }
+      ],
+      "hint": "Create `templates/` and `static/css/` directories. Place your HTML in `templates/index.html` and your CSS in `static/css/style.css`. Flask auto-discovers these folders.",
+      "artifact_type": "image",
+      "artifact_prompt": "Upload a screenshot of the final working Search Interface in your browser showing ranked search results.",
+      "reflection_prompt": "How does asynchronous data fetching (fetch/async/await) improve the user experience in the frontend?"
+    },
+    {
+      "id": 6,
+      "title": "E2E Testing & Quality Assurance",
+      "theory": "A professional search engine must be reliable. **End-to-End (E2E) Testing** simulates real user interactions to ensure that from the moment a user types a query to when results appear, every component (Frontend, API, Search Engine) is working correctly. In IR, we also use **Regression Testing** to ensure that algorithm tweaks don't negatively impact result quality for known 'golden queries'.",
+      "task": "Create a test suite to verify your search engine. Implement a simple Python script using `unittest` or `pytest` that programmatically calls your Flask API and asserts that specific known documents appear in the results for relevant queries.",
+      "code_snippets": [
+        {
+          "filename": "test_search.py",
+          "language": "python",
+          "code": "import unittest\nimport requests\n\nclass TestSearchEngine(unittest.TestCase):\n    BASE_URL = 'http://localhost:5000'\n\n    def test_health_check(self):\n        response = requests.get(f'{self.BASE_URL}/api/statistics')\n        self.assertEqual(response.status_code, 200)\n        self.assertIn('total_documents', response.json())\n\n    def test_bm25_ranking(self):\n        # Search for 'obesity' and check results\n        payload = {'query': 'obesity', 'model': 'bm25', 'top_k': 5}\n        response = requests.post(f'{self.BASE_URL}/api/search', json=payload)\n        data = response.json()\n        \n        self.assertEqual(response.status_code, 200)\n        self.assertGreater(len(data['results']), 0)\n        # Verify the top result has a valid score\n        self.assertGreater(data['results'][0]['score'], 0)"
+        },
+        {
+          "filename": "Terminal \u2014 Run Tests",
+          "language": "bash",
+          "code": "# Ensure your app.py is running in another terminal\npython -m unittest test_search.py"
+        }
+      ],
+      "hint": "Professional IR systems use 'Golden Sets' (a list of queries and their expected top results) to measure accuracy (Precision/Recall). Try creating your own Golden Set!",
+      "artifact_type": "text",
+      "artifact_prompt": "Paste your test results output here, or describe one edge case (like searching for stop-words) that your tests identified.",
+      "reflection_prompt": "What edge cases did you consider in your E2E tests, and why is regression testing critical for an IR engine?"
+    }
+  ],
+  "learned": [
+    {
+      "emoji": "\ud83d\udc0d",
+      "text": "Python Ecosystem Setup - Set up a robust data science environment utilizing Flask, pandas, and NLTK for natural language processing."
+    },
+    {
+      "emoji": "\ud83d\udcc4",
+      "text": "Multi-format Parsing - Built an extensible file parser capable of ingesting and normalizing structured and unstructured data formats."
+    },
+    {
+      "emoji": "\ud83e\uddee",
+      "text": "Algorithmic Ranking - Implemented state-of-the-art TF-IDF and BM25 ranking algorithms from theoretical foundations to production code."
+    },
+    {
+      "emoji": "\ud83d\udd0d",
+      "text": "Boolean Logic Search - Engineered exact-match boolean query parsing supporting complex AND, OR, and NOT logical operators."
+    },
+    {
+      "emoji": "\ud83c\udf10",
+      "text": "REST API Architecture - Designed and exposed core search functionality through secure, scalable RESTful API endpoints using Flask."
+    },
+    {
+      "emoji": "\ud83d\udda5\ufe0f",
+      "text": "Frontend Integration - Seamlessly connected a modern web interface to the backend system using asynchronous JavaScript."
+    },
+    {
+      "emoji": "\ud83e\uddea",
+      "text": "Quality Assurance - Developed comprehensive regression testing suites to ensure consistent, high-quality search relevance."
+    }
+  ],
+  "quiz": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of an Inverted Index?",
+      "options": [
+        "To sort documents by length",
+        "To map terms to the documents that contain them",
+        "To compress text files for storage",
+        "To translate queries into SQL"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An Inverted Index acts like a glossary in a book, mapping each term to the specific documents where it appears, allowing for O(1) or O(log N) term lookups."
+    },
+    {
+      "id": 2,
+      "question": "In TF-IDF, what does IDF (Inverse Document Frequency) do?",
+      "options": [
+        "Penalizes terms that appear in many documents",
+        "Boosts terms that appear frequently in a single document",
+        "Measures the total length of all documents",
+        "Ranks documents alphabetically"
+      ],
+      "correctAnswer": 0,
+      "explanation": "IDF reduces the weight of common terms (like \"the\" or \"is\") that appear across many documents, as they are less useful for distinguishing relevance."
+    },
+    {
+      "id": 3,
+      "question": "Why is BM25 generally preferred over basic TF-IDF?",
+      "options": [
+        "It is computationally faster",
+        "It normalizes for document length and adds term saturation",
+        "It supports boolean operations natively",
+        "It automatically removes stop words"
+      ],
+      "correctAnswer": 1,
+      "explanation": "BM25 improves upon TF-IDF by adding term frequency saturation (so excessive term repetition has diminishing returns) and normalizing for document length."
+    },
+    {
+      "id": 4,
+      "question": "What is a RESTful API?",
+      "options": [
+        "A database query language",
+        "An architectural style for network-based software",
+        "A frontend JavaScript framework",
+        "An algorithm for document ranking"
+      ],
+      "correctAnswer": 1,
+      "explanation": "REST (Representational State Transfer) is an architectural style for APIs that uses standard HTTP methods (GET, POST) and stateless communication."
+    },
+    {
+      "id": 5,
+      "question": "In a Boolean Search, what does the query \"Apple AND NOT iPhone\" return?",
+      "options": [
+        "Documents containing both \"Apple\" and \"iPhone\"",
+        "Documents containing \"Apple\" but excluding any that contain \"iPhone\"",
+        "Documents containing neither \"Apple\" nor \"iPhone\"",
+        "Documents containing \"iPhone\" but not \"Apple\""
+      ],
+      "correctAnswer": 1,
+      "explanation": "The AND NOT operator requires the first term to be present while strictly filtering out any documents that contain the second term."
+    }
+  ]
+}
