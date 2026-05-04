@@ -56,8 +56,8 @@ The IR Learning Platform is a Next.js application designed for interactive Infor
 
 The Gemini API key is exposed in plaintext in two documentation files:
 
-- `task_plan.md:7` — `AIzaSyCpQkHnaepEjQntUNh0TTQhuTVi_Rkobl0`
-- `findings.md:41` — Same key repeated
+- `task_plan.md:7` — ⚠️ Previously contained exposed key (now removed)
+- `findings.md:41` — ⚠️ Previously contained exposed key (now removed)
 
 **Risk:** Anyone with repo access can use the API key, potentially exhausting quota or accessing usage data.
 

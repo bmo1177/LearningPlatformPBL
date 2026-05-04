@@ -38,10 +38,9 @@ Each step has: `id`, `title`, `theory`, `task`, `code_snippets[]`, `hint`, `arti
 Need to add: `reflection_prompt`, top-level `quiz[]`
 
 ### Gemini API Key
-`AIzaSyCpQkHnaepEjQntUNh0TTQhuTVi_Rkobl0`
 - Store as `NEXT_PUBLIC_GEMINI_API_KEY` in `.env.local`
 - Use `@google/generative-ai` npm package
-- Model to use: `gemini-1.5-flash` (fast, free tier)
+- Model to use: `gemini-2.5-flash` (already configured in AIAssistant.tsx)
 
 ### NextWork Feature Analysis
 From the platform walkthrough:
