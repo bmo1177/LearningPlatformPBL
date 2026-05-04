@@ -84,7 +84,7 @@ Student says: ${userText}`;
   };
 
   return (
-    <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 font-sans">
+    <div className="fixed bottom-24 right-6 md:bottom-28 md:right-6 z-50 font-sans">
       {isAssistantOpen ? (
         <div className="bg-card rounded-3xl w-[calc(100vw-2rem)] sm:w-96 h-[500px] max-h-[calc(100vh-6rem)] flex flex-col shadow-2xl border border-border/60 overflow-hidden animate-in slide-in-from-bottom-10 fade-in duration-300">
           <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between">
