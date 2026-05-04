@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useProgress } from '@/hooks/useProgress';
 import { CheckCircle, Save, PenLine } from 'lucide-react';
 
@@ -9,28 +9,18 @@ interface ReflectionBoxProps {
 
 export function ReflectionBox({ stepId, prompt }: ReflectionBoxProps) {
   const { reflections, saveReflection } = useProgress();
-  const [text, setText] = useState('');
-  const [isSaved, setIsSaved] = useState(false);
-
-  useEffect(() => {
-    if (reflections[stepId]) {
-      setText(reflections[stepId]);
-      setIsSaved(true);
-    } else {
-      setText('');
-      setIsSaved(false);
-    }
-  }, [stepId, reflections]);
+  const [text, setText] = useState(reflections[stepId] || '');
+  const isSaved = !!reflections[stepId];
 
   const handleSave = () => {
     saveReflection(stepId, text);
-    setIsSaved(true);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
-    if (isSaved) setIsSaved(false);
   };
+
+  const hasUnsavedChanges = text !== (reflections[stepId] || '');
 
   return (
     <div className="mt-8 mb-6 p-6 bg-card/80 backdrop-blur-md rounded-2xl border border-border shadow-sm transition-all hover:shadow-md">
@@ -59,14 +49,14 @@ export function ReflectionBox({ stepId, prompt }: ReflectionBoxProps) {
           onClick={handleSave}
           disabled={text.length === 0}
           className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium transition-all duration-200 cursor-pointer ${
-            isSaved
+            isSaved && !hasUnsavedChanges
               ? 'bg-primary/10 text-primary border border-primary/20'
               : text.length > 0
               ? 'bg-primary text-primary-foreground shadow-md hover:bg-primary/90 hover:shadow-lg'
               : 'bg-secondary text-muted-foreground cursor-not-allowed'
           }`}
         >
-          {isSaved ? (
+          {isSaved && !hasUnsavedChanges ? (
             <>
               <CheckCircle className="w-4 h-4" />
               Saved
@@ -74,7 +64,7 @@ export function ReflectionBox({ stepId, prompt }: ReflectionBoxProps) {
           ) : (
             <>
               <Save className="w-4 h-4" />
-              Save Reflection
+              {hasUnsavedChanges ? 'Update Reflection' : 'Save Reflection'}
             </>
           )}
         </button>

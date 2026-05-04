@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import { Bot, X, Send, Sparkles } from 'lucide-react';
+import { X, Send, Sparkles } from 'lucide-react';
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 import { useProgress } from '@/hooks/useProgress';
 
@@ -71,11 +71,12 @@ Student says: ${userText}`;
       const text = response.text();
 
       setMessages(prev => [...prev, { role: 'assistant', content: text }]);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(error);
+      const message = error instanceof Error ? error.message : 'Unknown error';
       setMessages(prev => [...prev, { 
         role: 'assistant', 
-        content: `I'm having trouble connecting to my brain right now: ${error.message || 'Unknown error'}. Please try again later.` 
+        content: `I'm having trouble connecting to my brain right now: ${message}. Please try again later.` 
       }]);
     } finally {
       setIsLoading(false);
@@ -120,15 +121,15 @@ Student says: ${userText}`;
             
             {messages.length === 1 && (
               <div className="flex flex-col gap-2 mt-4 px-2">
-                <button onClick={() => setInput("Tell me about this project")} className="text-left text-xs bg-card border border-border p-2.5 rounded-xl text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors shadow-sm">
-                  "Tell me about this project"
-                </button>
-                <button onClick={() => setInput("Quiz me on my current step")} className="text-left text-xs bg-card border border-border p-2.5 rounded-xl text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors shadow-sm">
-                  "Quiz me"
-                </button>
-                <button onClick={() => setInput("My goal is...")} className="text-left text-xs bg-card border border-border p-2.5 rounded-xl text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors shadow-sm">
-                  "My goal is..."
-                </button>
+                 <button onClick={() => setInput("Tell me about this project")} className="text-left text-xs bg-card border border-border p-2.5 rounded-xl text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors shadow-sm">
+                   &quot;Tell me about this project&quot;
+                 </button>
+                 <button onClick={() => setInput("Quiz me on my current step")} className="text-left text-xs bg-card border border-border p-2.5 rounded-xl text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors shadow-sm">
+                   &quot;Quiz me&quot;
+                 </button>
+                 <button onClick={() => setInput("My goal is...")} className="text-left text-xs bg-card border border-border p-2.5 rounded-xl text-muted-foreground hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-colors shadow-sm">
+                   &quot;My goal is...&quot;
+                 </button>
               </div>
             )}
             {isLoading && (

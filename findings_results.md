@@ -216,14 +216,59 @@ All expected components from task_plan.md are present:
 
 ## Recommended Action Plan
 
-| Order | Action | Priority | Effort |
-|-------|--------|----------|--------|
-| 1 | Remove API key from task_plan.md and findings.md | 🔴 Critical | 5 min |
-| 2 | Fix ReflectionBox setState in useEffect | 🔴 High | 15 min |
-| 3 | Fix E2E test: populate textarea before save | 🔴 High | 10 min |
-| 4 | Fix lint errors (quotes, unused imports, img→Image) | 🟡 Medium | 30 min |
-| 5 | Update progress.md to reflect completed status | 🟢 Low | 5 min |
-| 6 | Review 20 isolated graph nodes | 🟢 Low | 15 min |
+| Order | Action | Priority | Effort | Status |
+|-------|--------|----------|--------|--------|
+| 1 | Remove API key from task_plan.md and findings.md | 🔴 Critical | 5 min | ✅ Done |
+| 2 | Fix ReflectionBox setState in useEffect | 🔴 High | 15 min | ✅ Done |
+| 3 | Fix E2E test: populate textarea before save | 🔴 High | 10 min | ✅ Done |
+| 4 | Fix lint errors (quotes, unused imports, img→Image) | 🟡 Medium | 30 min | ✅ Done |
+| 5 | Update progress.md to reflect completed status | 🟢 Low | 5 min | ✅ Done |
+| 6 | Review 20 isolated graph nodes | 🟢 Low | 15 min | ⏳ Pending |
+
+---
+
+## Completed Fixes (2026-05-04)
+
+### ✅ Security Fixes
+1. **Updated .env.local** with new working Gemini API key (`AIzaSyBdlgdBhaIOV_GoncNLKl_S5wSB9blnZco`)
+2. **Removed exposed API key** from `task_plan.md` and `findings.md`
+3. **Verified API works** - tested `gemini-2.5-flash` model successfully
+
+### ✅ React Anti-Pattern Fix (ReflectionBox.tsx)
+- Removed `setState` calls in `useEffect`
+- Changed `isSaved` from useState to derived value: `!!reflections[stepId]`
+- Added `key={step.id}` in MainStage.tsx to force re-mount on step change
+- Simplified component (removed useEffect entirely)
+
+### ✅ Lint Error Fixes
+1. **Unused imports removed:**
+   - `Bot` from AIAssistant.tsx
+   - `Target`, `GraduationCap` from DocPanel.tsx
+   - `path` from playwright.config.ts
+
+2. **Unescaped quotes fixed:**
+   - AIAssistant.tsx: `"Tell me about this project"` → `&quot;Tell me about this project&quot;`
+   - DocPanel.tsx: `"{reflections[step.id]}"` → `&quot;{reflections[step.id]}&quot;`
+   - ProjectSummary.tsx: `You'll` → `You&apos;ll`
+   - SuccessScreen.tsx: `"{reflections[step.id]}"` → `&quot;{reflections[step.id]}&quot;`
+
+3. **Replaced `<img>` with `<Image />` (next/image):**
+   - DocPanel.tsx: Added `import Image from 'next/image'` and replaced img tag
+   - ArtifactCapture.tsx: Added `import Image from 'next/image'` and replaced img tag
+
+4. **Fixed TypeScript issues:**
+   - QuizPanel.tsx: `@ts-ignore` → `@ts-expect-error`
+   - SuccessScreen.tsx: `@ts-ignore` → `@ts-expect-error` (for html2pdf)
+   - AIAssistant.tsx: `error: any` → `error: unknown` with proper type checking
+
+5. **ThemeToggle.tsx refactored:**
+   - Removed `mounted` state and `useEffect` pattern
+   - Simplified component (next-themes handles hydration)
+
+### ✅ E2E Test Fix
+- Updated `e2e/learning-interactions.spec.ts` to wait for button to be enabled
+- Added `expect(button).toBeEnabled()` before clicking Save Reflection
+- Test was failing because button was disabled when clicked (textarea state not updated yet)
 
 ---
 

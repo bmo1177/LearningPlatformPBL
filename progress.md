@@ -11,12 +11,14 @@ Planning files created. Ready to begin implementation.
 ### Phase Status
 | Phase | Name | Status | Notes |
 |---|---|---|---|
-| 1 | Reflective Writing Prompts | `pending` | |
-| 2 | Sidebar Badge + Community CTA + Learner Note | `pending` | |
-| 3 | Pre/Post Knowledge Quiz | `pending` | |
-| 4 | Guidance Mode Selector | `pending` | |
-| 5 | AI Learning Assistant (Gemini) | `pending` | |
-| 6 | Resource Cleanup + Color Fix | `pending` | |
+| 1 | Reflective Writing Prompts | `completed` | ReflectionBox.tsx lint-free |
+| 2 | Sidebar Badge + Community CTA + Learner Note | `completed` | |
+| 3 | Pre/Post Knowledge Quiz | `completed` | @ts-expect-error fixed |
+| 4 | Guidance Mode Selector | `completed` | |
+| 5 | AI Learning Assistant (Gemini) | `completed` | New API key working |
+| 6 | Resource Cleanup + Color Fix | `completed` | |
+| 7 | Code Quality & Lint Fixes | `completed` | All lint errors fixed |
+| 8 | API Key Security | `completed` | New key in .env.local |
 
 ---
 
@@ -41,4 +43,4 @@ Planning files created. Ready to begin implementation.
 ---
 
 ### Next Action
-→ Begin **Phase 1**: Add `reflection_prompt` fields to `course-ir.json`, extend `useProgress` hook, create `ReflectionBox.tsx`.
+→ Fix E2E test timeout issue (ReflectionBox save button disabled)

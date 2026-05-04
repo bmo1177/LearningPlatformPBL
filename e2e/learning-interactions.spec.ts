@@ -15,8 +15,13 @@ test.describe('Learning Interactions', () => {
     }
     
     // Fill reflection
-    await page.locator('#step-1 textarea[placeholder*="reflection"]').fill('This is a test reflection');
-    await page.locator('#step-1 button:has-text("Save Reflection")').click();
+    const reflectionTextarea = page.locator('#step-1 textarea[placeholder*="reflection"]');
+    await reflectionTextarea.fill('This is a test reflection');
+    
+    // Wait for button to be enabled
+    const saveReflectionBtn = page.locator('#step-1 button:has-text("Save Reflection")');
+    await expect(saveReflectionBtn).toBeEnabled({ timeout: 5000 });
+    await saveReflectionBtn.click();
     
     // Wait for it to save
     await expect(page.locator('#step-1 button:has-text("Saved")')).toBeVisible();

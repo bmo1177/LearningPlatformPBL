@@ -10,7 +10,6 @@ export function QuizPanel({ isPostQuiz = false }: { isPostQuiz?: boolean }) {
   const [score, setScore] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
-  // @ts-ignore
   const quiz = courseData.quiz || [];
 
   if (quiz.length === 0) return null;

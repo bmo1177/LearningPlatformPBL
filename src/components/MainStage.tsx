@@ -59,7 +59,7 @@ export default function MainStage({ step }: { step: StepType }) {
 
       {/* Reflection */}
       {step.reflection_prompt && (
-        <ReflectionBox stepId={step.id} prompt={step.reflection_prompt} />
+        <ReflectionBox key={step.id} stepId={step.id} prompt={step.reflection_prompt} />
       )}
 
       {/* Task */}

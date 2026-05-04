@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { X, Maximize2, Minimize2, FileText, Search, Target, CheckCircle2, GraduationCap } from 'lucide-react';
+import { X, Maximize2, Minimize2, FileText, Search, CheckCircle2 } from 'lucide-react';
 import courseData from '@/data/course-ir.json';
 import { useProgress } from '@/hooks/useProgress';
+import Image from 'next/image';
 
 export default function DocPanel() {
   const [open, setOpen] = useState(false);
@@ -104,11 +105,11 @@ export default function DocPanel() {
                           <CheckCircle2 className="w-3.5 h-3.5" />
                           <span className="font-bold uppercase tracking-wider">Verification Complete</span>
                         </div>
-                        {step.artifact_type === 'image' ? (
-                          <div className="rounded-xl overflow-hidden border border-border shadow-sm">
-                            <img src={artifacts[step.id]} alt={`Step ${step.id} artifact`} className="w-full h-auto" />
-                          </div>
-                        ) : (
+                         {step.artifact_type === 'image' ? (
+                           <div className="rounded-xl overflow-hidden border border-border shadow-sm relative w-full h-auto">
+                             <Image src={artifacts[step.id]} alt={`Step ${step.id} artifact`} fill className="object-contain" />
+                           </div>
+                         ) : (
                           <div className="p-4 bg-secondary text-foreground border border-border rounded-xl font-mono text-xs leading-relaxed overflow-x-auto whitespace-pre-wrap">
                             {artifacts[step.id]}
                           </div>
@@ -119,9 +120,9 @@ export default function DocPanel() {
                     {reflections[step.id] && (
                       <div className="mt-6">
                         <p className={`text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-3`}>Learner Reflection</p>
-                        <div className="p-5 bg-card/50 text-foreground border border-border rounded-xl text-sm leading-relaxed whitespace-pre-wrap italic shadow-inner">
-                          "{reflections[step.id]}"
-                        </div>
+                         <div className="p-5 bg-card/50 text-foreground border border-border rounded-xl text-sm leading-relaxed whitespace-pre-wrap italic shadow-inner">
+                           &quot;{reflections[step.id]}&quot;
+                         </div>
                       </div>
                     )}
                   </section>

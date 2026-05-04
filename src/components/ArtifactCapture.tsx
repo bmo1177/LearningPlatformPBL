@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { UploadCloud, CheckCircle } from 'lucide-react';
 import { useProgress } from '@/hooks/useProgress';
+import Image from 'next/image';
 
 export default function ArtifactCapture({ stepId, type, prompt }: { stepId: number, type: string, prompt: string }) {
   const { artifacts, saveArtifact } = useProgress();
@@ -38,8 +39,8 @@ export default function ArtifactCapture({ stepId, type, prompt }: { stepId: numb
       {type === 'image' ? (
         <div className="border-2 border-dashed border-border/50 rounded-xl p-8 text-center hover:bg-secondary transition-colors">
           {preview ? (
-            <div className="relative">
-              <img src={preview} alt="Artifact preview" className="max-h-64 mx-auto rounded-lg shadow-sm" />
+            <div className="relative max-h-64 w-full flex justify-center">
+              <Image src={preview} alt="Artifact preview" width={500} height={256} className="rounded-lg shadow-sm object-contain" />
               <label className="mt-4 inline-block px-4 py-2 bg-card border border-border rounded-lg cursor-pointer text-sm font-medium text-muted-foreground hover:bg-secondary">
                 Replace Image
                 <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />

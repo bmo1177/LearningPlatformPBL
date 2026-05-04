@@ -2,6 +2,7 @@ import { useProgress } from '@/hooks/useProgress';
 import courseData from '@/data/course-ir.json';
 import { Download, RefreshCw, Award, CheckCircle2 } from 'lucide-react';
 import { QuizPanel } from '@/components/QuizPanel';
+import Image from 'next/image';
 
 export default function SuccessScreen() {
   const { artifacts, reflections, currentStep, resetProgress } = useProgress();
@@ -11,7 +12,6 @@ export default function SuccessScreen() {
     const element = document.getElementById('report-content');
     if (!element) return;
     
-    // @ts-ignore
     const html2pdf = (await import('html2pdf.js')).default;
     
     // Make visible temporarily for generation
@@ -25,7 +25,8 @@ export default function SuccessScreen() {
       jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
 
-    html2pdf().set(opt as any).from(element).save().then(() => {
+      // @ts-expect-error - html2pdf.js types are incompatible
+      html2pdf().set(opt).from(element).save().then(() => {
       element.style.display = 'none';
     });
   };
@@ -137,8 +138,8 @@ export default function SuccessScreen() {
                 </div>
                 
                 {step.artifact_type === 'image' && artifacts[step.id] ? (
-                  <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-                    <img src={artifacts[step.id]} alt={`Step ${step.id} artifact`} className="w-full h-auto" />
+                  <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm relative w-full h-auto">
+                    <Image src={artifacts[step.id]} alt={`Step ${step.id} artifact`} fill className="object-contain" />
                   </div>
                 ) : artifacts[step.id] ? (
                   <div className="p-6 bg-slate-900 text-slate-300 border border-slate-800 rounded-2xl font-mono text-xs leading-relaxed whitespace-pre-wrap break-words">
@@ -153,7 +154,7 @@ export default function SuccessScreen() {
                 <div className="mt-8 p-6 bg-slate-50 border-l-4 border-blue-600 rounded-r-2xl">
                   <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-2">Learner Reflection</p>
                   <p className="text-slate-800 italic text-sm leading-relaxed whitespace-pre-wrap">
-                    "{reflections[step.id]}"
+                    &quot;{reflections[step.id]}&quot;
                   </p>
                 </div>
               )}

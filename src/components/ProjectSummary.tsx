@@ -12,7 +12,7 @@ export default function ProjectSummary() {
         <div>
           <h4 className="text-sm font-semibold text-foreground mb-1 font-poppins">Before you begin</h4>
           <p className="text-sm text-foreground/80 leading-relaxed">
-            This project focuses on the core principles of Information Retrieval. You'll be building algorithms from scratch to understand how they work under the hood. While production systems use optimized libraries, building them yourself is the best way to deeply understand search ranking.
+            This project focuses on the core principles of Information Retrieval. You&apos;ll be building algorithms from scratch to understand how they work under the hood. While production systems use optimized libraries, building them yourself is the best way to deeply understand search ranking.
           </p>
         </div>
       </div>
