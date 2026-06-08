@@ -23,23 +23,23 @@ export function ReflectionBox({ stepId, prompt }: ReflectionBoxProps) {
   const hasUnsavedChanges = text !== (reflections[stepId] || '');
 
   return (
-    <div className="mt-8 mb-6 p-6 bg-card/80 backdrop-blur-md rounded-2xl border border-border shadow-sm transition-all hover:shadow-md">
-      <div className="flex items-center gap-2 mb-3">
-        <PenLine className="w-5 h-5 text-muted-foreground" />
-        <h3 className="text-lg font-semibold text-foreground font-poppins">Reflection</h3>
+    <div className="mt-8 mb-8 p-7 bg-card rounded-3xl border border-border shadow-sm transition-all duration-300 hover:shadow-md hover:border-border/80">
+      <div className="flex items-center gap-2.5 mb-3">
+        <PenLine className="w-4 h-4 text-muted-foreground" />
+        <h3 className="text-base font-semibold text-foreground font-poppins">Reflection</h3>
       </div>
       
-      <p className="text-muted-foreground mb-4 text-sm">{prompt}</p>
+      <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{prompt}</p>
       
       <div className="relative">
         <textarea
           value={text}
           onChange={handleChange}
           placeholder="Type your reflection here..."
-          className="w-full min-h-[120px] p-4 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-y"
+          className="w-full min-h-[120px] p-4 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all duration-200 resize-y text-sm leading-relaxed"
           maxLength={1000}
         />
-        <div className="absolute bottom-3 right-3 text-xs text-muted-foreground">
+        <div className="absolute bottom-3 right-3 text-xs text-muted-foreground tabular-nums">
           {text.length} / 1000
         </div>
       </div>
@@ -48,7 +48,7 @@ export function ReflectionBox({ stepId, prompt }: ReflectionBoxProps) {
         <button
           onClick={handleSave}
           disabled={text.length === 0}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium transition-all duration-200 cursor-pointer ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer ${
             isSaved && !hasUnsavedChanges
               ? 'bg-primary/10 text-primary border border-primary/20'
               : text.length > 0
