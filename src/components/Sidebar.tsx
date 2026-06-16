@@ -36,8 +36,9 @@ export default function Sidebar({ isOpen, onToggle, currentStep }: { isOpen: boo
             </div>
             <button 
               onClick={onToggle}
-              className="p-2 hover:bg-secondary rounded-lg text-muted-foreground hover:text-foreground transition-colors cursor-pointer md:hidden"
+              className="p-3 hover:bg-secondary rounded-lg text-muted-foreground hover:text-foreground transition-colors cursor-pointer md:hidden"
               title="Hide Sidebar"
+              aria-label="Close sidebar"
             >
               <PanelLeftClose className="w-5 h-5" />
             </button>
@@ -68,13 +69,13 @@ export default function Sidebar({ isOpen, onToggle, currentStep }: { isOpen: boo
               <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.15em] px-3 mb-2.5 font-poppins">Overview</p>
               <ul className="space-y-0.5">
                 <li>
-                  <button onClick={() => scrollToSection('summary')} className="w-full text-left flex items-center gap-2.5 text-sm text-foreground/60 hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-lg transition-all duration-200 cursor-pointer group">
+                  <button onClick={() => scrollToSection('summary')} className="w-full text-left flex items-center gap-2.5 text-sm text-foreground/60 hover:text-primary hover:bg-primary/5 px-3 py-2.5 md:py-2 rounded-lg transition-all duration-200 cursor-pointer group" aria-label="Scroll to 30 Second Summary">
                     <Zap className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                     <span>30 Second Summary</span>
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => scrollToSection('objectives')} className="w-full text-left flex items-center gap-2.5 text-sm text-foreground/60 hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-lg transition-all duration-200 cursor-pointer group">
+                  <button onClick={() => scrollToSection('objectives')} className="w-full text-left flex items-center gap-2.5 text-sm text-foreground/60 hover:text-primary hover:bg-primary/5 px-3 py-2.5 md:py-2 rounded-lg transition-all duration-200 cursor-pointer group" aria-label="Scroll to Objectives">
                     <Target className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                     <span>Objectives</span>
                   </button>
@@ -94,7 +95,8 @@ export default function Sidebar({ isOpen, onToggle, currentStep }: { isOpen: boo
                     <li key={step.id}>
                       <button
                         onClick={() => scrollToSection(`step-${step.id}`)}
-                        className="w-full text-left flex items-start gap-2.5 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-secondary cursor-pointer group"
+                        className="w-full text-left flex items-start gap-2.5 px-3 py-2.5 md:py-2 rounded-lg transition-all duration-200 hover:bg-secondary cursor-pointer group"
+                        aria-label={`Go to step ${step.id}: ${step.title}`}
                       >
                         <div className="mt-0.5 shrink-0">
                           {isCompleted ? (
@@ -120,13 +122,13 @@ export default function Sidebar({ isOpen, onToggle, currentStep }: { isOpen: boo
               <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.15em] px-3 mb-2.5 font-poppins">Wrap Up</p>
               <ul className="space-y-0.5">
                 <li>
-                  <button onClick={() => scrollToSection('learned')} className="w-full text-left flex items-center gap-2.5 text-sm text-foreground/60 hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-lg transition-all duration-200 cursor-pointer group">
+                  <button onClick={() => scrollToSection('learned')} className="w-full text-left flex items-center gap-2.5 text-sm text-foreground/60 hover:text-primary hover:bg-primary/5 px-3 py-2.5 md:py-2 rounded-lg transition-all duration-200 cursor-pointer group" aria-label="Scroll to What You Learned">
                     <GraduationCap className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                     <span>What You Learned</span>
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => scrollToSection('export')} className="w-full text-left flex items-center gap-2.5 text-sm text-foreground/60 hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-lg transition-all duration-200 cursor-pointer group">
+                  <button onClick={() => scrollToSection('export')} className="w-full text-left flex items-center gap-2.5 text-sm text-foreground/60 hover:text-primary hover:bg-primary/5 px-3 py-2.5 md:py-2 rounded-lg transition-all duration-200 cursor-pointer group" aria-label="Scroll to Export Report">
                     <Download className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                     <span>Export Report</span>
                   </button>
@@ -157,14 +159,16 @@ export default function Sidebar({ isOpen, onToggle, currentStep }: { isOpen: boo
             onClick={onToggle}
             className="p-3 bg-background border border-border rounded-xl shadow-lg hover:shadow-xl transition-all text-muted-foreground cursor-pointer group animate-in fade-in slide-in-from-left-4"
             title="Show Sidebar"
+            aria-label="Show sidebar"
           >
             <PanelLeftOpen className="w-5 h-5 group-hover:text-primary transition-colors" />
           </button>
           {currentStepData && (
             <button
               onClick={onToggle}
-              className="flex items-center gap-2 px-3 py-2 bg-primary/10 border border-primary/20 rounded-xl shadow-lg hover:shadow-xl transition-all cursor-pointer group animate-in fade-in slide-in-from-left-4"
+              className="flex items-center gap-2 px-3 py-2.5 md:py-2 bg-primary/10 border border-primary/20 rounded-xl shadow-lg hover:shadow-xl transition-all cursor-pointer group animate-in fade-in slide-in-from-left-4"
               title={`Currently viewing: Step ${currentStep}`}
+              aria-label={`Currently viewing step ${currentStep}: ${currentStepData.title}`}
             >
               <BookOpen className="w-4 h-4 text-primary shrink-0" />
               <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">

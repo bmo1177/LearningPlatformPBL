@@ -32,7 +32,7 @@ export default function ArtifactCapture({ stepId, type, prompt }: { stepId: numb
   };
 
   return (
-    <div className="bg-card border border-border rounded-3xl p-7 shadow-sm mt-8">
+    <div className="bg-card border border-border rounded-2xl md:rounded-3xl p-5 md:p-7 shadow-sm mt-8">
       <h3 className="text-base font-bold text-foreground mb-2 font-poppins">Artifact Capture</h3>
       <p className="text-muted-foreground mb-6 text-sm leading-relaxed">{prompt}</p>
 
@@ -41,7 +41,7 @@ export default function ArtifactCapture({ stepId, type, prompt }: { stepId: numb
           {preview ? (
             <div className="relative max-h-64 w-full flex justify-center">
               <Image src={preview} alt="Artifact preview" width={500} height={256} className="rounded-xl shadow-sm object-contain" />
-              <label className="mt-4 inline-block px-4 py-2 bg-card border border-border rounded-xl cursor-pointer text-sm font-medium text-muted-foreground hover:bg-secondary transition-colors">
+              <label className="mt-4 inline-block px-5 py-2.5 bg-card border border-border rounded-xl cursor-pointer text-sm font-medium text-muted-foreground hover:bg-secondary transition-colors min-h-[44px]">
                 Replace Image
                 <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
               </label>
@@ -68,7 +68,7 @@ export default function ArtifactCapture({ stepId, type, prompt }: { stepId: numb
           <button
             onClick={handleTextSubmit}
             disabled={!textInput.trim()}
-            className="px-5 py-2.5 bg-primary text-primary-foreground font-medium text-sm rounded-xl hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md"
+            className="px-5 py-3 bg-primary text-primary-foreground font-medium text-sm rounded-xl hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md min-h-[44px]"
           >
             {saved ? 'Update Answer' : 'Save Answer'}
           </button>

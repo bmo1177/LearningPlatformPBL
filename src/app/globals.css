@@ -104,6 +104,23 @@ html {
   }
 }
 
+/* Touch accessibility */
+@layer base {
+  button, a, [role="button"], input, select, textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:active, a:active, [role="button"]:active {
+    -webkit-tap-highlight-color: hsl(var(--primary) / 0.15);
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    button, a, [role="button"] {
+      touch-action: manipulation;
+    }
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

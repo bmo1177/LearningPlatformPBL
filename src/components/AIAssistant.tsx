@@ -99,8 +99,9 @@ Student says: ${userText}`;
             </div>
             <button 
               onClick={() => setAssistantOpen(false)}
-              className="text-primary-foreground/50 hover:text-primary-foreground transition-colors p-1"
+              className="text-primary-foreground/50 hover:text-primary-foreground transition-colors p-2.5"
               title="Close Socratic Tutor"
+              aria-label="Close Socratic Tutor"
             >
               <X className="w-5 h-5" />
             </button>
@@ -150,13 +151,14 @@ Student says: ${userText}`;
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask for guidance..."
-              className="flex-1 px-4 py-2 bg-secondary border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm text-foreground placeholder:text-muted-foreground"
+              className="flex-1 px-4 py-3 bg-secondary border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm text-foreground placeholder:text-muted-foreground"
             />
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="w-10 h-10 bg-primary hover:bg-primary/90 disabled:bg-muted disabled:text-muted-foreground text-primary-foreground rounded-xl flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              className="w-11 h-11 bg-primary hover:bg-primary/90 disabled:bg-muted disabled:text-muted-foreground text-primary-foreground rounded-xl flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               title="Send message"
+              aria-label="Send message"
             >
               <Send className="w-4 h-4" />
             </button>

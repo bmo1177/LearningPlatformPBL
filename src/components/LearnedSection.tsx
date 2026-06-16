@@ -3,7 +3,7 @@ import { GraduationCap, CheckCircle2 } from 'lucide-react';
 
 export default function LearnedSection() {
   return (
-    <section className="max-w-4xl mx-auto px-8 py-24 border-t border-border">
+    <section className="max-w-4xl mx-auto px-4 sm:px-8 py-16 md:py-24 border-t border-border">
       <div className="flex flex-col items-center text-center mb-16">
         <div className="flex items-center gap-3 mb-4">
           <div className="h-px w-8 bg-primary/30"></div>
@@ -17,7 +17,7 @@ export default function LearnedSection() {
         {courseData.learned.map((item, i) => (
           <div 
             key={i} 
-            className="group relative flex items-start gap-5 p-8 bg-card rounded-3xl border border-border hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden"
+            className="group relative flex items-start gap-5 p-6 md:p-8 bg-card rounded-2xl md:rounded-3xl border border-border hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden"
           >
             {/* Background Accent */}
             <div className="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-primary/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity blur-2xl"></div>

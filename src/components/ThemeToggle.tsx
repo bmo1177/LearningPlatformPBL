@@ -19,8 +19,9 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(nextTheme.id)}
-      className="p-2 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
+      className="p-2.5 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
       title={`Switch to ${nextTheme.label} theme`}
+      aria-label={`Switch to ${nextTheme.label} theme`}
       suppressHydrationWarning
     >
       <CurrentIcon className="w-5 h-5" />

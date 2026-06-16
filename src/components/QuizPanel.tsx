@@ -42,8 +42,8 @@ export function QuizPanel({ isPostQuiz = false }: { isPostQuiz?: boolean }) {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-8 mb-16 font-sans">
-      <div className="bg-card rounded-3xl p-10 border border-border shadow-sm">
+    <div className="max-w-4xl mx-auto px-4 sm:px-8 mb-16 font-sans">
+      <div className="bg-card rounded-2xl md:rounded-3xl p-5 md:p-10 border border-border shadow-sm">
         <div className="flex items-center gap-4 mb-8">
           <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary border border-primary/15">
             <BrainCircuit className="w-6 h-6" />
@@ -73,7 +73,7 @@ export function QuizPanel({ isPostQuiz = false }: { isPostQuiz?: boolean }) {
             </p>
             <button 
               onClick={handleRetry}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-secondary/80 text-foreground rounded-xl font-medium text-sm transition-colors duration-200 border border-border"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-secondary hover:bg-secondary/80 text-foreground rounded-xl font-medium text-sm transition-colors duration-200 border border-border min-h-[44px]"
             >
               <RefreshCw className="w-4 h-4" />
               Try Again
@@ -130,7 +130,7 @@ export function QuizPanel({ isPostQuiz = false }: { isPostQuiz?: boolean }) {
                 <div className="flex justify-end">
                   <button 
                     onClick={handleNext}
-                    className="px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl font-medium text-sm shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                    className="px-6 py-3.5 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl font-medium text-sm shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg min-h-[44px]"
                   >
                     {currentQuestion < quiz.length - 1 ? 'Next Question' : 'See Results'}
                   </button>

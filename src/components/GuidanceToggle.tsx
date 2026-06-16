@@ -7,7 +7,7 @@ export function GuidanceToggle() {
   const { guidanceMode, setGuidanceMode } = useProgress();
 
   return (
-    <div className="flex items-center justify-between bg-card rounded-2xl p-6 mb-12 shadow-sm border border-border font-sans">
+    <div className="flex flex-col md:flex-row items-start md:items-center justify-between bg-card rounded-2xl p-6 mb-12 shadow-sm border border-border font-sans gap-4">
       <div>
         <h3 className="text-lg font-bold text-foreground font-poppins">Learning Mode</h3>
         <p className="text-sm text-muted-foreground max-w-sm">
@@ -15,39 +15,39 @@ export function GuidanceToggle() {
         </p>
       </div>
       
-      <div className="flex bg-secondary p-1 rounded-xl">
+      <div className="flex flex-wrap bg-secondary p-1 rounded-xl w-full md:w-auto">
         <button
           onClick={() => setGuidanceMode('guided')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all cursor-pointer ${
+          className={`flex items-center justify-center gap-2 flex-1 md:flex-none px-4 py-3 md:py-2 rounded-lg font-medium text-sm transition-all cursor-pointer min-h-[44px] ${
             guidanceMode === 'guided' 
               ? 'bg-background text-primary shadow-sm' 
               : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
           }`}
         >
-          <Compass className="w-4 h-4" />
-          Step-by-Step
+          <Compass className="w-4 h-4 shrink-0" />
+          <span>Step-by-Step</span>
         </button>
         <button
           onClick={() => setGuidanceMode('some')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all cursor-pointer ${
+          className={`flex items-center justify-center gap-2 flex-1 md:flex-none px-4 py-3 md:py-2 rounded-lg font-medium text-sm transition-all cursor-pointer min-h-[44px] ${
             guidanceMode === 'some' 
               ? 'bg-background text-primary shadow-sm' 
               : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
           }`}
         >
-          <Compass className="w-4 h-4" />
-          Some Guidance
+          <Compass className="w-4 h-4 shrink-0" />
+          <span>Some Guidance</span>
         </button>
         <button
           onClick={() => setGuidanceMode('independent')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all cursor-pointer ${
+          className={`flex items-center justify-center gap-2 flex-1 md:flex-none px-4 py-3 md:py-2 rounded-lg font-medium text-sm transition-all cursor-pointer min-h-[44px] ${
             guidanceMode === 'independent' 
               ? 'bg-background text-primary shadow-sm' 
               : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
           }`}
         >
-          <Zap className="w-4 h-4" />
-          On Your Own
+          <Zap className="w-4 h-4 shrink-0" />
+          <span>On Your Own</span>
         </button>
       </div>
     </div>

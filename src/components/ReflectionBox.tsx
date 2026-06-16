@@ -23,7 +23,7 @@ export function ReflectionBox({ stepId, prompt }: ReflectionBoxProps) {
   const hasUnsavedChanges = text !== (reflections[stepId] || '');
 
   return (
-    <div className="mt-8 mb-8 p-7 bg-card rounded-3xl border border-border shadow-sm transition-all duration-300 hover:shadow-md hover:border-border/80">
+    <div className="mt-8 mb-8 p-5 md:p-7 bg-card rounded-2xl md:rounded-3xl border border-border shadow-sm transition-all duration-300 hover:shadow-md hover:border-border/80">
       <div className="flex items-center gap-2.5 mb-3">
         <PenLine className="w-4 h-4 text-muted-foreground" />
         <h3 className="text-base font-semibold text-foreground font-poppins">Reflection</h3>
@@ -48,7 +48,7 @@ export function ReflectionBox({ stepId, prompt }: ReflectionBoxProps) {
         <button
           onClick={handleSave}
           disabled={text.length === 0}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer ${
+          className={`flex items-center gap-2 px-5 py-3 rounded-xl font-medium text-sm transition-all duration-200 cursor-pointer min-h-[44px] ${
             isSaved && !hasUnsavedChanges
               ? 'bg-primary/10 text-primary border border-primary/20'
               : text.length > 0

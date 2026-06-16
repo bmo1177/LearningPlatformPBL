@@ -41,10 +41,10 @@ export default function DocPanel() {
               <span className={`font-bold text-sm uppercase tracking-widest text-foreground`}>Project Dossier</span>
             </div>
             <div className="flex items-center gap-1">
-              <button onClick={() => setExpanded(!expanded)} className={`hidden md:block p-2 rounded-lg hover:bg-secondary transition-colors cursor-pointer text-foreground`}>
+              <button onClick={() => setExpanded(!expanded)} className={`hidden md:block p-2.5 rounded-lg hover:bg-secondary transition-colors cursor-pointer text-foreground`} aria-label={expanded ? "Minimize panel" : "Maximize panel"}>
                 {expanded ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
               </button>
-              <button onClick={() => setOpen(false)} className={`p-2 rounded-lg hover:bg-secondary transition-colors cursor-pointer text-foreground`}>
+              <button onClick={() => setOpen(false)} className={`p-2.5 rounded-lg hover:bg-secondary transition-colors cursor-pointer text-foreground`} aria-label="Close documentation">
                 <X className="w-4 h-4" />
               </button>
             </div>

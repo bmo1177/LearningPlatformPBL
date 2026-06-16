@@ -33,7 +33,7 @@ export default function MainStage({ step }: { step: StepType }) {
   const { guidanceMode } = useProgress();
 
   return (
-    <div id={`step-${step.id}`} className="max-w-4xl mx-auto px-8 pt-32 pb-24 border-t border-border first:border-t-0 font-sans">
+    <div id={`step-${step.id}`} className="max-w-4xl mx-auto px-4 sm:px-8 pt-20 md:pt-32 pb-20 md:pb-24 border-t border-border first:border-t-0 font-sans">
       {/* Step Header */}
       <div className="mb-16">
         <div className="flex items-center gap-4 mb-6">
@@ -42,11 +42,11 @@ export default function MainStage({ step }: { step: StepType }) {
           </span>
           <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent"></div>
         </div>
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight font-poppins">{step.title}</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-tight font-poppins break-words">{step.title}</h2>
       </div>
 
       {/* Theory Card */}
-      <div className="group relative bg-card rounded-3xl p-10 mb-8 border border-border shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 text-card-foreground">
+      <div className="group relative bg-card rounded-2xl md:rounded-3xl p-6 md:p-10 mb-8 border border-border shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 text-card-foreground">
         <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-500">
           <GraduationCap className="w-28 h-28" />
         </div>
@@ -56,7 +56,7 @@ export default function MainStage({ step }: { step: StepType }) {
         </div>
         <div className="prose prose-slate max-w-none">
           {step.theory.split('\n\n').map((para, i) => (
-            <p key={i} className="text-muted-foreground leading-relaxed text-lg mb-5 last:mb-0 font-light" dangerouslySetInnerHTML={{
+            <p key={i} className="text-muted-foreground leading-relaxed text-base sm:text-lg mb-5 last:mb-0 font-light break-words" dangerouslySetInnerHTML={{
               __html: para
                 .replace(/\*\*(.+?)\*\*/g, '<strong class="text-foreground font-semibold">$1</strong>')
                 .replace(/`(.+?)`/g, '<code class="bg-secondary px-1.5 py-0.5 rounded text-sm font-mono text-primary">$1</code>')
@@ -71,13 +71,13 @@ export default function MainStage({ step }: { step: StepType }) {
       )}
 
       {/* Task Card */}
-      <div className="bg-secondary text-secondary-foreground rounded-3xl p-10 mb-12 border border-border relative overflow-hidden">
+      <div className="bg-secondary text-secondary-foreground rounded-2xl md:rounded-3xl p-6 md:p-10 mb-12 border border-border relative overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/60 to-primary"></div>
         <div className="flex items-center gap-3 mb-6">
           <div className="h-2 w-2 rounded-full bg-primary"></div>
           <h3 className="text-[10px] font-bold text-primary uppercase tracking-[0.2em] font-poppins">Implementation Task</h3>
         </div>
-        <p className="text-foreground leading-relaxed text-xl font-medium tracking-tight" dangerouslySetInnerHTML={{
+        <p className="text-foreground leading-relaxed text-lg sm:text-xl font-medium tracking-tight break-words" dangerouslySetInnerHTML={{
           __html: step.task
             .replace(/`(.+?)`/g, '<code class="bg-background text-primary px-2 py-0.5 rounded text-sm font-mono border border-border">$1</code>')
         }} />
@@ -85,7 +85,7 @@ export default function MainStage({ step }: { step: StepType }) {
 
       {/* Independent Mode Notice */}
       {guidanceMode === 'independent' && (
-        <div className="bg-primary/10 border border-primary/20 rounded-2xl p-6 mb-12 flex items-center gap-4">
+        <div className="bg-primary/10 border border-primary/20 rounded-2xl p-5 md:p-6 mb-12 flex items-start md:items-center gap-3 md:gap-4">
           <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary shrink-0">
             <Zap className="w-5 h-5" />
           </div>
@@ -115,7 +115,7 @@ export default function MainStage({ step }: { step: StepType }) {
 
       {/* Hint */}
       {(guidanceMode === 'guided' || guidanceMode === 'some') && step.hint && (
-        <div className="bg-accent/10 border border-accent/20 rounded-3xl p-8 mb-16 flex items-start gap-6 relative overflow-hidden group transition-all duration-300">
+        <div className="bg-accent/10 border border-accent/20 rounded-2xl md:rounded-3xl p-6 md:p-8 mb-16 flex items-start gap-4 md:gap-6 relative overflow-hidden group transition-all duration-300">
           <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 blur-3xl -mr-20 -mt-20 rounded-full"></div>
           <div className="p-3 bg-card rounded-2xl shadow-sm border border-border group-hover:shadow-md group-hover:bg-accent/5 transition-all duration-300 shrink-0">
             <Lightbulb className="w-6 h-6 text-accent-foreground" />
@@ -132,7 +132,9 @@ export default function MainStage({ step }: { step: StepType }) {
 
       {/* Artifact Capture */}
       <div className="pt-8 border-t border-border">
-        <ArtifactCapture stepId={step.id} type={step.artifact_type} prompt={step.artifact_prompt} />
+        <div className="px-0 sm:px-2">
+          <ArtifactCapture stepId={step.id} type={step.artifact_type} prompt={step.artifact_prompt} />
+        </div>
       </div>
     </div>
   );

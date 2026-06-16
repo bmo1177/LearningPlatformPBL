@@ -4,7 +4,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 
 export default function ProjectHeader() {
   return (
-    <header className="max-w-4xl mx-auto px-8 pt-24 pb-16 relative">
+    <header className="max-w-4xl mx-auto px-4 sm:px-8 pt-20 md:pt-24 pb-12 md:pb-16 relative">
       {/* Subtle Warm Gradient */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[500px] bg-gradient-to-b from-primary/[0.06] via-primary/[0.02] to-transparent -z-10 pointer-events-none rounded-b-[3rem]"></div>
 
@@ -24,16 +24,16 @@ export default function ProjectHeader() {
       </div>
 
       {/* Title */}
-      <h1 className="text-5xl md:text-7xl font-black text-foreground leading-[1] mb-6 tracking-tighter font-poppins">
+      <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground leading-[1] mb-6 tracking-tighter font-poppins break-words">
         {courseData.title.split(' - ')[0]}
-        <span className="block text-muted-foreground mt-2 font-light text-3xl md:text-4xl tracking-tight">{courseData.title.split(' - ')[1] || "Python Edition"}</span>
+        <span className="block text-muted-foreground mt-2 font-light text-2xl sm:text-3xl md:text-4xl tracking-tight">{courseData.title.split(' - ')[1] || "Python Edition"}</span>
       </h1>
-      <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-14 max-w-3xl">
+      <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-14 max-w-3xl">
         {courseData.description}
       </p>
 
       {/* Metadata Bar */}
-      <div className="flex flex-wrap items-center gap-x-10 gap-y-6 mb-14 p-7 bg-card rounded-3xl border border-border shadow-sm">
+      <div className="flex flex-wrap items-center gap-x-10 gap-y-6 mb-14 p-5 md:p-7 bg-card rounded-2xl md:rounded-3xl border border-border shadow-sm">
         <div className="flex items-center gap-3.5">
           <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
             <Gauge className="w-5 h-5" />
